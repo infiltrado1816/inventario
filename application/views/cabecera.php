@@ -33,10 +33,21 @@
                 <a class="navbar-brand" href="<?php echo base_url(); ?>">Inventario</a> 
             </div>
             <div style="color: white;
-            padding: 15px 50px 5px 50px;
+            padding: 15px 100px 5px 50px;
             float: right;
-            font-size: 16px;"> <?php    
-            echo  date("d") . " / " . date("M") . " / " . date("Y"); ?>&nbsp;  </div>
+            font-size: 16px;"> 
+                     
+            <?php echo  date("d") . " / " . date("M") . " / " . date("Y"); ?>&nbsp;
+                  <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Perfil  <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                        <li><a href="<?php echo base_url()."usuarios/ver/"; ?>">Ver Perfil</a></li>
+                        <li><a href="<?php echo base_url()."usuarios"; ?>">Usuarios</a></li>
+                        <li class="divider"></li>
+                        <li><a href="<?php echo base_url()?>">Cerrar</a></li>
+                        </ul>
+                      </div>  
+          </div>
         </nav>   
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">

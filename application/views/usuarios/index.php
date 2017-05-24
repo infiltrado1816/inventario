@@ -2,7 +2,7 @@
 
 <ul class="breadcrumb">
     <li><a href="<?php echo base_url();?>">Inicio</a></li>
-    <li class="active">Clientes</li>
+    <li class="active">usuarios</li>
   </ul>
   <!-- /. breadcrumb  -->
   
@@ -15,8 +15,7 @@
                         <div class="panel-heading">
 
                           
-                            Listado de Clientes
-                        </div>
+                            Listado de Usuarios                        </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -24,9 +23,11 @@
               <tr>
                 <th style="width: 26px;">#</th>
                 
-                <th>Razon Social</th>
-                <th>RUT</th>
-                <th>Tipo</th>
+                <th>Acceso</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>perfil</th>
+                
                 <th style="width: 26px;"></th>
                  <th style="width: 26px;"></th>
               </tr>
@@ -34,16 +35,18 @@
           </thead>
           <tbody>
 
-            <?php $i=1; foreach ($clientes as $clientes_item): ?>
+            <?php $i=1; foreach ($usuarios as $usuarios_item): ?>
            <tr>
             <td><?php echo $i; ?></td>
            
-            <td><?php echo $clientes_item['razon']; ?></td>
-            <td><?php echo $clientes_item['rut']; ?></td>
-            <td><?php echo $clientes_item['tipo']; ?></td>
+            <td><?php echo $usuarios_item['login']; ?></td>
+            <td><?php echo $usuarios_item['nombre']; ?></td>
+            <td><?php echo $usuarios_item['apellido']; ?></td>
+            <td><?php echo $usuarios_item['perfil']; ?></td>
             
-            <td><a href="<?php echo base_url()."clientes/ficha/".$clientes_item['id']?>">Ver</a></td>
-            <td><a href="<?php echo base_url()."clientes/editar/".$clientes_item['id']?>">Editar</a></td>
+            
+            <td><a href="<?php echo base_url()."usuarios/ficha/".$usuarios_item['id']?>">Editar</a></td>
+            <td><a href="<?php echo base_url()."usuarios/editar/".$usuarios_item['id']?>">Password</a></td>
           </tr>
         <?php $i++; endforeach ?>
 
@@ -54,7 +57,7 @@
                               </div>
 
 <div class="panel-footer">
-                            <a href="<?php echo base_url();?>clientes/nuevo" class="btn btn-primary">Nuevo Cliente</a>
+                            <a href="<?php echo base_url();?>usuarios/nuevo" class="btn btn-primary">Nuevo Usuario</a>
                         
                         </div>
                          <!--End panel-footer -->
