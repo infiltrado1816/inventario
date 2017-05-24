@@ -43,7 +43,7 @@
                         <h3 class="panel-title">Acceso Usuarios</h3>
                     </div>
                     <div class="panel-body">
-                       <?php echo form_open(base_url()) ?>
+                       <?php echo form_open(base_url()."login") ?>
                         
                             <fieldset>
                                 <div class="form-group">

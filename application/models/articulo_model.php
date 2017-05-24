@@ -56,7 +56,9 @@ class Articulo_model extends CI_Model {
 		$this->db->update('articulos', $data);
 
 		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
-					'articulos_id' => $this->input->post('id_articulo')
+					'articulos_id' => $this->input->post('id_articulo'),
+					'usuarios_id' => $this->session->userdata('id')
+
 			     );
 		return $this->db->insert('historico_pases', $data);
 
