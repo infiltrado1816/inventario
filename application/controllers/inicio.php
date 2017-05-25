@@ -17,6 +17,14 @@ class Inicio extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+    if(!$this->session->userdata('login'))
+         redirect(base_url()."login");
+	
+	}
+
 	public function index()
 	{
 	

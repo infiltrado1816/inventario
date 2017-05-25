@@ -41,12 +41,11 @@
                   <div class="btn-group">
                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><?php echo $this->session->userdata('login'); ?>  <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                        <li><a href="<?php echo base_url()."usuarios/ver/"; ?>">Ver Perfil</a></li>
                         <?php if($this->session->userdata('perfil')==="Administrador") {?>
                         <li><a href="<?php echo base_url()."usuarios"; ?>">Usuarios</a></li>
                         <?php } ?>
                         <li class="divider"></li>
-                        <li><a href="<?php echo base_url()."login";?>">Cerrar</a></li>
+                        <li><a href="<?php echo base_url()."login/cerrar";?>">Cerrar</a></li>
                         </ul>
                       </div>  
           </div>

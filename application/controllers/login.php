@@ -75,6 +75,20 @@ class Login extends CI_Controller {
 		}
 
 	}
+	public function cerrar()
+	{	
+		$data = array(
+	                'is_logued_in',
+	                'id',
+	                'perfil',
+	                'nombre',
+	                'apellido',
+	                'login'
+	                );
+
+		$this->session->unset_userdata($data);
+		  redirect(base_url()."login");
+	}
 }
 
 /* End of file welcome.php */
