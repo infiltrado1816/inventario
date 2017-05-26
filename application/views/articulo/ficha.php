@@ -83,8 +83,10 @@
             <thead>
               <tr>
                 <th style="width: 26px;">#</th>
-                <th>FECHA</th>
-                <th>Dependencia Destino</th>                
+                <th>Fecha</th>
+                <th>Motivo</th>
+                <th>Destino</th>                
+                <th>Originador</th>
               </tr>
             </tr>
           </thead>
@@ -94,7 +96,9 @@
             <tr>
               <td><?php echo $i; ?></td>
               <td><?php echo $historial_item['fecha']; ?></td>
+              <td><?php echo $historial_item['tipo']; ?></td>
               <td><?php echo $historial_item['nombre']; ?></td>
+              <td><?php echo $historial_item['login']; ?></td>
               
             </tr>
             <?php $i++; endforeach ?>

@@ -57,10 +57,10 @@ class Articulo_model extends CI_Model {
 
 		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
 					'articulos_id' => $this->input->post('id_articulo'),
+					'tipo' => 'Pase',
 					'usuarios_id' => $this->session->userdata('id')
-
-			     );
-		return $this->db->insert('historico_pases', $data);
+					 );
+		return $this->db->insert('historicos', $data);
 
 
 
@@ -87,10 +87,11 @@ class Articulo_model extends CI_Model {
 
 	public function get_historial($id_articulo)
 	{
-		$this->db->select('historico_pases.*,dependencias.nombre');
-		$this->db->from('historico_pases');
-		$this->db->join('dependencias', 'dependencias.id = historico_pases.dependencias_id');
-		$this->db->where('historico_pases.articulos_id', $id_articulo);
+		$this->db->select('historicos.*,dependencias.nombre,usuarios.login');
+		$this->db->from('historicos');
+		$this->db->join('dependencias', 'dependencias.id = historicos.dependencias_id');
+		$this->db->join('usuarios', 'usuarios.id = historicos.usuarios_id');
+		$this->db->where('historicos.articulos_id', $id_articulo);
 		$query = $this->db->get();
 		return $query->result_array();
 	}
