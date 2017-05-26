@@ -182,7 +182,37 @@ class Articulo extends CI_Controller {
 			
 		}
 
-	public function buscar()
+
+
+		public function prestamo()
+		{
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('id_articulo', 'Articulo', 'required');
+				if ($this->form_validation->run() == FALSE)
+					{
+						$data['menu']="articulo";
+						$this->load->view('cabecera',$data);
+						$this->load->model('clasificacion_model');
+						$this->load->model('dependencia_model');
+						$data['item'] = $this->clasificacion_model->get_clasificacion();
+						$data['dependencias'] = $this->dependencia_model->get_dependencia();
+						$data['articulos'] = $this->articulo_model->buscar();
+						$this->load->view('articulo/prestamo',$data);
+						$this->load->view('pie');
+
+					}
+				else
+					{
+						 $this->articulo_model->prestamo();
+						 redirect(base_url(), 'refresh');
+
+					}
+			
+		}
+
+
+
+	public function buscar($origen)
 		{
 						$data['menu']="articulo";
 						$this->load->view('cabecera',$data);
@@ -191,7 +221,7 @@ class Articulo extends CI_Controller {
 						$data['item'] = $this->clasificacion_model->get_clasificacion();
 						$data['dependencias'] = $this->dependencia_model->get_dependencia();
 						$data['articulos'] = $this->articulo_model->buscar();
-						$this->load->view('articulo/pase',$data);
+						$this->load->view('articulo/'.$origen,$data);
 						$this->load->view('pie');
 		}
 	

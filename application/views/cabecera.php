@@ -67,6 +67,10 @@
                                 <a href="<?php echo base_url(); ?>articulo/pase">
                                     <i class="fa fa-exchange fa-3x"></i> Pase</a>
                             </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>articulo/prestamo">
+                                    <i class="fa fa-handshake-o fa-3x"></i> Prestamo</a>
+                            </li>
                         </ul>
 
                 </li>

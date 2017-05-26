@@ -28,10 +28,16 @@ class Articulo_model extends CI_Model {
 				'clasificaciones_id' => $this->input->post('clasificaciones_id'),
 				'dependencias_id' => '0'
 			);
+		
+		$this->db->insert('articulos', $data);
 
+		$data = array('dependencias_id' => '0',
+					'articulos_id' => $this->db->insert_id(),
+					'tipo' => 'Alta',
+					'usuarios_id' => $this->session->userdata('id')
+					 );
+		return $this->db->insert('historicos', $data);
 
-
-		return $this->db->insert('articulos', $data);
 	}	
 
 	public function edit_articulo($id)
@@ -66,6 +72,26 @@ class Articulo_model extends CI_Model {
 
 	}
 
+	public function prestamo()
+	{
+		$data = array(
+			'dependencias_id' => $this->input->post('dependencias_id')
+			);
+			$this->db->where('id',$this->input->post('id_articulo'));
+//		$this->db->update('articulos', $data);
+
+		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
+					'articulos_id' => $this->input->post('id_articulo'),
+					'tipo' => 'Prestamo',
+					'usuarios_id' => $this->session->userdata('id')
+					 );
+		return $this->db->insert('historicos', $data);
+
+
+
+	}
+
+
 	public function del_articulo($id)
 	{
 		return $this->db->delete('articulos', array('id' => $id)); 
@@ -92,6 +118,9 @@ class Articulo_model extends CI_Model {
 		$this->db->join('dependencias', 'dependencias.id = historicos.dependencias_id');
 		$this->db->join('usuarios', 'usuarios.id = historicos.usuarios_id');
 		$this->db->where('historicos.articulos_id', $id_articulo);
+		$this->db->order_by("fecha", "desc"); 
+			
+		
 		$query = $this->db->get();
 		return $query->result_array();
 	}

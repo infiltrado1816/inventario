@@ -1,7 +1,7 @@
 <div id="page-wrapper" >
   <ul class="breadcrumb">
     <li><a href="<?php echo base_url();?>">Inicio</a></li>
-    <li class="active">Pase</li>
+    <li class="active">Prestamo</li>
   </ul>
   <!-- /. breadcrumb  -->
   <hr />  
@@ -17,7 +17,7 @@
           <div class="panel-body">
            <div class="form-group " >
           
-            <?php echo form_open(base_url().'articulo/buscar/pase') ?>
+            <?php echo form_open(base_url().'articulo/prestamo') ?>
                
                 <div class="col-md-1">
                   <label>Clasificación</label>
@@ -44,7 +44,7 @@
       
 
       </div>
- <?php echo form_open(base_url().'articulo/pase') ?>
+ <?php echo form_open(base_url().'articulo/prestamo') ?>
   
 
       <div class="panel-body">
@@ -125,7 +125,7 @@
 
   
   <div class="panel-footer">
-    <button type="submit" class="btn btn-primary ">Realizar Pase</button>             
+    <button type="submit" class="btn btn-primary ">Realizar Prestamo</button>             
   </div>
   <!--End panel-footer -->
 </div>
