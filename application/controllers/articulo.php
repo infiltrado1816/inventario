@@ -85,7 +85,7 @@ class Articulo extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('descripcion', 'descripcion', 'required|max_length[255]');
-		$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|is_unique[articulos.numeroemco]|max_length[45]');
+		$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
 		$this->form_validation->set_rules('serie', 'serie', 'max_length[100]');
 		$this->form_validation->set_rules('factura', 'factura', 'max_length[45]');
 		$this->form_validation->set_rules('clasificaciones_id', 'Clasificación', 'required');
