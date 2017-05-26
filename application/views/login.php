@@ -35,7 +35,7 @@
 /* ---------- GENERAL ---------- */
 
 body {
-    background-color: #C0C0C0;
+    background-color: #353534;
     color: #000;
     font-family: "Varela Round", Arial, Helvetica, sans-serif;
     font-size: 16px;

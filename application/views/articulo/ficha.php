@@ -1,6 +1,7 @@
 <div id="page-wrapper" >
   <ul class="breadcrumb">
     <li><a href="<?php echo base_url();?>">Inicio</a></li>
+      <li><a href="<?php echo base_url().'articulo';?>">Articulos</a></li>
     <li class="active">Ficha</li>
   </ul>
   <!-- /. breadcrumb  -->
