@@ -212,6 +212,31 @@ class Articulo extends CI_Controller {
 
 
 
+		public function retorno()
+		{
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('id_articulo', 'Articulo', 'required');
+				if ($this->form_validation->run() == FALSE)
+					{
+						$data['menu']="articulo";
+						$this->load->view('cabecera',$data);
+						$data['articulos'] = $this->articulo_model->get_articulo_prestamo();
+						$this->load->view('articulo/retorno',$data);
+						$this->load->view('pie');
+
+					}
+				else
+					{
+						 $this->articulo_model->retorno();
+						 redirect(base_url(), 'refresh');
+
+					}
+			
+		}
+
+
+
+
 	public function buscar($origen)
 		{
 						$data['menu']="articulo";

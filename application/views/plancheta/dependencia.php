@@ -55,7 +55,7 @@
 
             <?php $i=1; foreach ($item as $articulos): ?>
             <tr>
-              <td><?php echo $i; ?></td>
+              <td><?php  if($articulos['prestamo']==1){ echo '<i title="Elemento en prestamo" class="fa fa-handshake-o fa-1x"></i>'; }else{echo $i;} ?></td>
               <td><?php echo $articulos['numeroemco']; ?></td>
               <td><?php echo $articulos['clasificacionesnombre']; ?></td>
               <td><?php echo $articulos['descripcion']; ?></td>

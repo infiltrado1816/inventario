@@ -19,12 +19,27 @@ class Articulo_model extends CI_Model {
 		$query = $this->db->get_where('articulos', array('id' => $id));
 		return $query->row_array();
 	}
+
+
+	public function get_articulo_prestamo()
+	{
+			$this->db->select('articulos.*,articulos.id as id_articulo,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre');
+			$this->db->from('articulos');
+			$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
+			$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
+			$this->db->where('prestamo', TRUE);
+			$this->db->order_by("descripcion", "asc"); 
+			$query = $this->db->get();
+			return $query->result_array();
+	}
+
 	public function set_articulo()
 	{
 		$data = array('descripcion' => $this->input->post('descripcion'),
 				'numeroemco' => $this->input->post('numeroemco'),
 				'serie' => $this->input->post('serie'),
 				'factura' => $this->input->post('factura'),
+				'prestamo' => FALSE,
 				'clasificaciones_id' => $this->input->post('clasificaciones_id'),
 				'dependencias_id' => '0'
 			);
@@ -75,14 +90,35 @@ class Articulo_model extends CI_Model {
 	public function prestamo()
 	{
 		$data = array(
-			'dependencias_id' => $this->input->post('dependencias_id')
+			'prestamo' => TRUE
 			);
 			$this->db->where('id',$this->input->post('id_articulo'));
-//		$this->db->update('articulos', $data);
+		$this->db->update('articulos', $data);
 
 		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
 					'articulos_id' => $this->input->post('id_articulo'),
 					'tipo' => 'Prestamo',
+					'usuarios_id' => $this->session->userdata('id')
+					 );
+		return $this->db->insert('historicos', $data);
+
+
+
+	}
+
+
+
+	public function retorno()
+	{
+		$data = array(
+			'prestamo' => FALSE
+			);
+			$this->db->where('id',$this->input->post('id_articulo'));
+		$this->db->update('articulos', $data);
+
+		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
+					'articulos_id' => $this->input->post('id_articulo'),
+					'tipo' => 'Retorno',
 					'usuarios_id' => $this->session->userdata('id')
 					 );
 		return $this->db->insert('historicos', $data);

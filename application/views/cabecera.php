@@ -70,6 +70,18 @@
                              <li>
                                 <a href="<?php echo base_url(); ?>articulo/prestamo">
                                     <i class="fa fa-handshake-o fa-3x"></i> Prestamo</a>
+                                      <ul class="nav nav-third-level" >
+                                           <li>
+                                              <a href="<?php echo base_url(); ?>articulo/retorno">
+                                                  <i class="fa fa-check fa-3x"></i> Retorno</a>
+                                          </li>
+                                        
+                                           <li>
+                                              <a href="<?php echo base_url(); ?>articulo/prestamo">
+                                                  <i class="fa fa-handshake-o fa-3x"></i> Egreso</a>
+                                          </li>
+                                      </ul>
+
                             </li>
                         </ul>
 
