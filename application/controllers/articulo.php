@@ -204,6 +204,7 @@ class Articulo extends CI_Controller {
 				else
 					{
 						 $this->articulo_model->prestamo();
+						 $this->xls_vale_prestamo();
 						 redirect(base_url(), 'refresh');
 
 					}
@@ -249,5 +250,67 @@ class Articulo extends CI_Controller {
 						$this->load->view('articulo/'.$origen,$data);
 						$this->load->view('pie');
 		}
+
+
+
+
+	public function xls_vale_prestamo()
+	{
 	
+    
+    // inicializamos la librería
+        $this->load->library('PHPExcel.php');
+        $file = './Vale.xlsx';                             
+        $this->phpexcel = PHPExcel_IOFactory::load($file);
+
+
+        // configuramos las propiedades del documento
+        $this->phpexcel->getProperties()->setCreator("Comando Conjunto Austral")
+                                     ->setLastModifiedBy("Comando Conjunto Austral")
+                                     ->setTitle("Inventario Departamento")
+                                     ->setSubject("")
+                                     ->setDescription("")
+                                     ->setKeywords("")
+                                     ->setCategory("");         
+         
+        // agregamos información a las celdas
+       
+      $this->load->model('dependencia_model');
+   
+      $key = $this->articulo_model->get_articulo($this->input->post('id_articulo'));
+      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
+      
+      $i=1;
+      $j=12;
+ 
+      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['nombre']);
+        
+       $this->phpexcel->setActiveSheetIndex(0)
+        ->setCellValue('B'.$j, $i)
+        ->setCellValue('C'.$j, '1')
+        ->setCellValue('D'.$j, $key['descripcion'])
+        ->setCellValue('E'.$j, $key['serie'])
+        ->setCellValue('F'.$j, $key['numeroemco']);
+     
+         
+       
+         
+        // Renombramos la hoja de trabajo
+        $this->phpexcel->getActiveSheet()->setTitle('Prestamo Inventario');
+         
+         
+        // configuramos el documento para que la hoja
+        // de trabajo número 0 sera la primera en mostrarse
+        // al abrir el documento
+        $this->phpexcel->setActiveSheetIndex(0);
+         
+         
+        // redireccionamos la salida al navegador del cliente (Excel2007)
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="PrestamoInventario.xlsx"');
+        header('Cache-Control: max-age=0');
+         
+        $objWriter = PHPExcel_IOFactory::createWriter($this->phpexcel, 'Excel2007');
+        $objWriter->save('php://output');
+    }
 }
