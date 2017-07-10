@@ -6,7 +6,9 @@
   <!-- /. breadcrumb  -->
   <hr />  
  <?php echo form_open(base_url().'articulo/reparacionobs')?>
- <input type="hidden" value=  > 
+ <input type="hidden" name="id_articulo" value=<?php echo $id_articulo;?>  > 
+ <input type="hidden" name="dependencias_id" value=<?php echo $articulos['dependencias_id'];?>  > 
+ 
 <div class="panel panel-default">
   <div class="panel-body">
    <div class="form-group " >

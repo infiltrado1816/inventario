@@ -79,6 +79,7 @@ class Articulo_model extends CI_Model {
 		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
 					'articulos_id' => $this->input->post('id_articulo'),
 					'tipo' => 'Pase',
+					'observacion' => $this->input->post('observacion'),
 					'usuarios_id' => $this->session->userdata('id')
 					 );
 		return $this->db->insert('historicos', $data);
@@ -98,6 +99,7 @@ class Articulo_model extends CI_Model {
 		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
 					'articulos_id' => $this->input->post('id_articulo'),
 					'tipo' => 'Prestamo',
+					'observacion' => $this->input->post('observacion'),
 					'usuarios_id' => $this->session->userdata('id')
 					 );
 		return $this->db->insert('historicos', $data);
@@ -109,6 +111,7 @@ class Articulo_model extends CI_Model {
 
 		$data = array('observacion' => $this->input->post('observacion'),
 					'articulos_id' => $this->input->post('id_articulo'),
+					'dependencias_id' => $this->input->post('dependencias_id'),
 					'tipo' => 'Reparacion',
 					'usuarios_id' => $this->session->userdata('id')
 					 );

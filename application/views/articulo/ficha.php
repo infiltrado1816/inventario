@@ -88,6 +88,7 @@
                 <th>Motivo</th>
                 <th>Destino</th>                
                 <th>Originador</th>
+                <th>Observación</th>
               </tr>
             </tr>
           </thead>
@@ -100,6 +101,7 @@
               <td><?php echo $historial_item['tipo']; ?></td>
               <td><?php echo $historial_item['nombre']; ?></td>
               <td><?php echo $historial_item['login']; ?></td>
+              <td><?php echo $historial_item['observacion']; ?></td>
               
             </tr>
             <?php $i++; endforeach ?>

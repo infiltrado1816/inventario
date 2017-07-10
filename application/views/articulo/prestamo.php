@@ -110,6 +110,12 @@
           <?php $i++; endforeach ?>                                  
         </select>
       </div>
+
+      <div class="form-group " >
+        <label>Obseraciones</label>
+       <textarea name="observacion" class="form-control" rows="3"></textarea>
+         <span class="text-danger"><?php echo form_error('observacion'); ?></span>
+      </div>
       
  </div>
     <!-- /. col-md-3  -->  

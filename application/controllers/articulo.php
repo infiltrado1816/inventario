@@ -253,8 +253,9 @@ class Articulo extends CI_Controller {
 				if ($this->form_validation->run() == FALSE)
 					{
 						$data['menu']="articulo";
+						$data['id_articulo']=$id_articulo;
 						$this->load->view('cabecera',$data);
-						$data['articulos'] = $this->articulo_model->get_articulo();
+						$data['articulos'] = $this->articulo_model->get_articulo($id_articulo);
 						$this->load->view('articulo/reparacionobs',$data);
 						$this->load->view('pie');
 
