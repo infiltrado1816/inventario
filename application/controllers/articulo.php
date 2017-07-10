@@ -236,7 +236,36 @@ class Articulo extends CI_Controller {
 		}
 
 
+		public function reparacion()
+		{
+					$data['menu']="articulo";
+						$this->load->view('cabecera',$data);
+						$data['articulos'] = $this->articulo_model->get_articulo();
+						$this->load->view('articulo/reparacion',$data);
+						$this->load->view('pie');	
+		}
 
+		public function reparacionobs($id_articulo)
+		{
+
+				$this->load->library('form_validation');
+				$this->form_validation->set_rules('observacion', 'Observacion', 'required|max_length[254]');
+				if ($this->form_validation->run() == FALSE)
+					{
+						$data['menu']="articulo";
+						$this->load->view('cabecera',$data);
+						$data['articulos'] = $this->articulo_model->get_articulo();
+						$this->load->view('articulo/reparacionobs',$data);
+						$this->load->view('pie');
+
+					}
+				else
+					{
+						 $this->articulo_model->reparacion();
+						 redirect(base_url(), 'refresh');
+
+					}
+		}
 
 	public function buscar($origen)
 		{
@@ -251,19 +280,12 @@ class Articulo extends CI_Controller {
 						$this->load->view('pie');
 		}
 
-
-
-
 	public function xls_vale_prestamo()
-	{
-	
-    
+	{ 
     // inicializamos la librería
         $this->load->library('PHPExcel.php');
         $file = './Vale.xlsx';                             
         $this->phpexcel = PHPExcel_IOFactory::load($file);
-
-
         // configuramos las propiedades del documento
         $this->phpexcel->getProperties()->setCreator("Comando Conjunto Austral")
                                      ->setLastModifiedBy("Comando Conjunto Austral")
@@ -273,32 +295,21 @@ class Articulo extends CI_Controller {
                                      ->setKeywords("")
                                      ->setCategory("");         
          
-        // agregamos información a las celdas
-       
-      $this->load->model('dependencia_model');
-   
+        // agregamos información a las celdas       
+      $this->load->model('dependencia_model');   
       $key = $this->articulo_model->get_articulo($this->input->post('id_articulo'));
-      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
-      
+      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));      
       $i=1;
-      $j=12;
- 
-      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['nombre']);
-        
-       $this->phpexcel->setActiveSheetIndex(0)
+      $j=12; 
+      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['nombre']);      
+      $this->phpexcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$j, $i)
         ->setCellValue('C'.$j, '1')
         ->setCellValue('D'.$j, $key['descripcion'])
         ->setCellValue('E'.$j, $key['serie'])
-        ->setCellValue('F'.$j, $key['numeroemco']);
-     
-         
-       
-         
+        ->setCellValue('F'.$j, $key['numeroemco']);      
         // Renombramos la hoja de trabajo
-        $this->phpexcel->getActiveSheet()->setTitle('Prestamo Inventario');
-         
-         
+        $this->phpexcel->getActiveSheet()->setTitle('Prestamo Inventario');     
         // configuramos el documento para que la hoja
         // de trabajo número 0 sera la primera en mostrarse
         // al abrir el documento

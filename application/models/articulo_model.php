@@ -101,10 +101,20 @@ class Articulo_model extends CI_Model {
 					'usuarios_id' => $this->session->userdata('id')
 					 );
 		return $this->db->insert('historicos', $data);
-
-
-
 	}
+
+	public function reparacion()
+	{
+		
+
+		$data = array('observacion' => $this->input->post('observacion'),
+					'articulos_id' => $this->input->post('id_articulo'),
+					'tipo' => 'Reparacion',
+					'usuarios_id' => $this->session->userdata('id')
+					 );
+		return $this->db->insert('historicos', $data);
+	}
+
 
 
 

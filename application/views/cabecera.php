@@ -83,6 +83,10 @@
                                       </ul>
 
                             </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>articulo/reparacion">
+                                    <i class="fa fa-medkit fa-3x"></i> Reparación</a>
+                            </li>
                         </ul>
 
                 </li>
