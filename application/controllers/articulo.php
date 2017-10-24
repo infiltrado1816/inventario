@@ -239,13 +239,13 @@ class Articulo extends CI_Controller {
 		public function reparacion()
 		{
 					$data['menu']="articulo";
-						$this->load->view('cabecera',$data);
-						$data['articulos'] = $this->articulo_model->get_articulo();
-						$this->load->view('articulo/reparacion',$data);
-						$this->load->view('pie');	
+					$this->load->view('cabecera',$data);
+					$data['articulos'] = $this->articulo_model->get_articulo();
+					$this->load->view('articulo/reparacion',$data);
+					$this->load->view('pie');	
 		}
 
-		public function reparacionobs($id_articulo)
+		public function reparacionobs($id_articulo = FALSE)
 		{
 
 				$this->load->library('form_validation');

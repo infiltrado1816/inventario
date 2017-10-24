@@ -35,7 +35,7 @@
               <td><?php echo $articulo['descripcion']; ?></td>
               <td><?php echo $articulo['serie']; ?></td>
               <td><?php echo $articulo['nombre']; ?></td>
-              <td> <a  href="<?php echo base_url();?>articulo\reparacionobs\<?php echo $articulo['id']; ?>">Reparar</a>
+              <td> <a  href="<?php echo base_url();?>articulo\reparacionobs\<?php echo $articulo['id_articulo']; ?>">Reparar</a>
             </td>
          
             </tr>
