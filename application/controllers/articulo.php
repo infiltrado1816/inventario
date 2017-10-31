@@ -85,16 +85,21 @@ class Articulo extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('descripcion', 'descripcion', 'required|max_length[255]');
-		$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
+		//$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
+
+
 		$this->form_validation->set_rules('serie', 'serie', 'max_length[100]');
 		$this->form_validation->set_rules('factura', 'factura', 'max_length[45]');
 		$this->form_validation->set_rules('clasificaciones_id', 'Clasificación', 'required');
+		$this->form_validation->set_rules('proyectos_id', 'Proyecto', 'required');
 		
 		
 		if ($this->form_validation->run() == FALSE)
 			{
 				$this->load->model('clasificacion_model');
+				$this->load->model('proyecto_model');
 				$data['item'] = $this->clasificacion_model->get_clasificacion();
+				$data['proyectos'] = $this->proyecto_model->get_proyecto();
 
 				$data['menu']="articulo";
 				$this->load->view('cabecera',$data);
@@ -113,14 +118,17 @@ class Articulo extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('descripcion', 'descripcion', 'required|max_length[255]');
-		$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
+		//$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
 		$this->form_validation->set_rules('serie', 'serie', 'max_length[100]');
 		$this->form_validation->set_rules('factura', 'factura', 'max_length[45]');
 		$this->form_validation->set_rules('clasificaciones_id', 'Clasificación', 'required');
+		$this->form_validation->set_rules('proyectos_id', 'Proyecto', 'required');
 		
 		
 		if ($this->form_validation->run() == FALSE)
 			{
+				$this->load->model('proyecto_model');
+				$data['proyectos'] = $this->proyecto_model->get_proyecto();
 				$this->load->model('clasificacion_model');
 				$data['item'] = $this->clasificacion_model->get_clasificacion();
 				$data['articulo'] = $this->articulo_model->get_articulo($id_articulo);

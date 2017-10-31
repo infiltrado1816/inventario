@@ -44,7 +44,7 @@
               <tr>
                 <th style="width: 26px;">#</th>
                 <th style="width: 100px;">N° EMCO</th>
-                <th>Artículo</th>
+                <th>Clasificación</th>
                 <th>Descripción</th>
                 <th style="width: 200px;">N° serie</th>
                

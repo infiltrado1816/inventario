@@ -4,7 +4,7 @@ class proyecto_model extends CI_Model {
 	{
 		$this->load->database();
 	}
-	public function get_dependencia($id = FALSE)
+	public function get_proyecto($id = FALSE)
 	{
 		if ($id === FALSE)
 		{
@@ -16,12 +16,12 @@ class proyecto_model extends CI_Model {
 		$query = $this->db->get_where('proyectos', array('id' => $id));
 		return $query->row_array();
 	}
-	public function set_dependencia()
+	public function set_proyecto()
 	{
 		$data = array('nombre' => $this->input->post('nombre'));
 		return $this->db->insert('proyectos', $data);
 	}	
-	public function edit_dependencia($id)
+	public function edit_proyecto($id)
 	{
 		$data = array(
 			'nombre' => $this->input->post('nombre')
@@ -29,7 +29,7 @@ class proyecto_model extends CI_Model {
 			$this->db->where('id', $id);
 		return $this->db->update('proyectos', $data);;
 	}
-	public function del_dependencia($id)
+	public function del_proyecto($id)
 	{
 		return $this->db->delete('proyectos', array('id' => $id)); 
 	

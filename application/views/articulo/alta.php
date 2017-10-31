@@ -53,6 +53,20 @@
          <span class="text-danger"><?php echo form_error('factura'); ?></span>
       </div>
 
+
+      <div class="form-group " >
+        <label>Proyecto</label>
+        <select class="form-control" name="proyectos_id">
+         <option value=""></option>
+          <?php $i=1; foreach ($proyectos as $proyecto): ?>
+          <option value="<?php echo $proyecto['id']; ?>" <?php echo set_select('proyectos_id',$proyecto['id']); ?>><?php echo $proyecto['nombre']; ?></option>
+          <?php $i++; endforeach ?>                                  
+        </select>
+        <span class="text-danger"><?php echo form_error('proyectos_id'); ?></span>
+      </div>
+
+
+
                         <div class="form-group"> 
                             <div class="aab controls col-md-4 "></div>
                             <div class="controls col-md-8 ">

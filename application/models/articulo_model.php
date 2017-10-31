@@ -8,10 +8,11 @@ class Articulo_model extends CI_Model {
 	{
 		if ($id === FALSE)
 		{
-			$this->db->select('articulos.*,articulos.id as id_articulo,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre');
+			$this->db->select('articulos.*,articulos.id as id_articulo,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre,proyectos.nombre as proyecto_nombre');
 			$this->db->from('articulos');
 			$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
 			$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
+			$this->db->join('proyectos', 'proyectos.id = articulos.proyectos_id');
 			$this->db->order_by("descripcion", "asc"); 
 			$query = $this->db->get();
 			return $query->result_array();
@@ -41,6 +42,7 @@ class Articulo_model extends CI_Model {
 			'factura' => $this->input->post('factura'),
 			'prestamo' => FALSE,
 			'clasificaciones_id' => $this->input->post('clasificaciones_id'),
+			'proyectos_id' => $this->input->post('proyectos_id'),
 			'dependencias_id' => '0'
 			);
 
@@ -57,14 +59,16 @@ class Articulo_model extends CI_Model {
 
 	public function edit_articulo($id)
 	{
+
 		$data = array('descripcion' => $this->input->post('descripcion'),
 			'numeroemco' => $this->input->post('numeroemco'),
 			'serie' => $this->input->post('serie'),
 			'factura' => $this->input->post('factura'),
-			'clasificaciones_id' => $this->input->post('clasificaciones_id')		
+			'clasificaciones_id' => $this->input->post('clasificaciones_id'),
+			'proyectos_id' => $this->input->post('proyectos_id')				
 			);
 		$this->db->where('id', $id);
-		return $this->db->update('articulos', $data);;
+		return $this->db->update('articulos', $data);
 	}
 
 

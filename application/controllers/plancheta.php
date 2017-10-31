@@ -37,6 +37,20 @@ class Plancheta extends CI_Controller {
 	}
 
 
+
+  public function proyecto()
+  {   
+      $this->load->model('proyecto_model');
+      $data['menu']="proyecto";
+      $data['proyecto_id']=$this->input->post('proyecto_id');
+      $this->load->view('cabecera',$data);
+      $data['proyecto_item'] = $this->proyecto_model->get_proyecto();
+      $data['item'] = $this->plancheta_model->get_plancheta_proyecto();
+      $this->load->view('plancheta/proyecto',$data);
+      $this->load->view('pie');   
+  }
+
+
 	public function resumen()
 	{		
 			$data['menu']="clasificacion";

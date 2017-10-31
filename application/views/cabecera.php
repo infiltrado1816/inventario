@@ -109,7 +109,7 @@
                               </li>
                                <li>
                                   <a href="<?php echo base_url(); ?>proyecto">
-                                      <i class="fa fa-search fa-3x"></i> Proyectos</a>
+                                      <i class="fa fa-clone fa-3x"></i> Proyectos</a>
                               </li>
                        </ul>
                   </li>
@@ -125,6 +125,11 @@
                                   <a href="<?php echo base_url(); ?>plancheta/clasificacion">
                                       <i class="fa fa-indent fa-3x"></i> Por Clasificación</a>
                               </li>
+                              <li>
+                                  <a href="<?php echo base_url(); ?>plancheta/proyecto">
+                                      <i class="fa fa-clone fa-3x"></i> Por Proyectos</a>
+                              </li>
+
                                <li>
                                   <a href="<?php echo base_url(); ?>plancheta/resumen">
                                       <i class="fa fa-bar-chart fa-3x"></i>resumen</a>

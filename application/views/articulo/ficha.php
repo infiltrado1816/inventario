@@ -30,6 +30,7 @@
         <label>Número de Factura</label>
         <input class="form-control" name="factura" value="<?php echo $item['factura']; ?>" />
       </div>
+    
       </div>
       
       <div class="col-md-6 ">
