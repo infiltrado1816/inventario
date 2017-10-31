@@ -107,6 +107,10 @@
                                   <a href="<?php echo base_url(); ?>articulo">
                                       <i class="fa fa-search fa-3x"></i> Articulos</a>
                               </li>
+                               <li>
+                                  <a href="<?php echo base_url(); ?>proyecto">
+                                      <i class="fa fa-search fa-3x"></i> Proyectos</a>
+                              </li>
                        </ul>
                   </li>
                 <li>
