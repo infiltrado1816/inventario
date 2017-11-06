@@ -27,7 +27,7 @@ class Plancheta_model extends CI_Model {
 			$this->db->from('articulos');
 			$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
 			$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
-			$this->db->where('clasificaciones_id', $this->input->post('clasificaciones_id'));
+			$this->db->where('clasificaciones_id', $this->input->post('clasificacion_id'));
 
 			$this->db->order_by("numeroemco", "ASC"); 
 			$this->db->order_by("clasificacionesnombre", "ASC"); 
@@ -44,7 +44,7 @@ class Plancheta_model extends CI_Model {
 			$this->db->from('articulos');
 			$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
 			$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
-			$this->db->where('proyectos_id', $this->input->post('proyectos_id'));
+			$this->db->where('proyectos_id', $this->input->post('proyecto_id'));
 
 			$this->db->order_by("numeroemco", "ASC"); 
 			$this->db->order_by("clasificacionesnombre", "ASC"); 

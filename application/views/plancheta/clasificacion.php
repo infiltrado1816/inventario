@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-md-3">
                     
-                    <select class="form-control" onchange="this.form.submit()" name="clasificaciones_id">
+                    <select class="form-control" onchange="this.form.submit()" name="clasificacion_id">
                     <option ></option>
                     <?php $i=1; foreach ($clasificacion_item as $clasificacion): ?>
                     <option value="<?php echo $clasificacion['id']; ?>" <?php if($clasificacion_id==$clasificacion['id']){echo "selected";}?> ><?php echo $clasificacion['nombre']; ?></option>
