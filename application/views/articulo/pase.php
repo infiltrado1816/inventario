@@ -86,6 +86,15 @@
         <?php $i++; endforeach ?>                                  
       </select>
     </div>
+<div class="form-group " >
+      <label>Responsable</label>
+      <select class="form-control" name="responsables_id">
+        <?php $i=1; foreach ($responsables as $responsable): ?>
+        <option value="<?php echo $responsable['id']; ?>" ><?php echo $responsable['apellido']." ".$responsable['nombre']; ?></option>
+        <?php $i++; endforeach ?>                                  
+      </select>
+    </div>
+
     <div class="form-group " >
         <label>Obseraciones</label>
        <textarea name="observacion" class="form-control" rows="3"></textarea>

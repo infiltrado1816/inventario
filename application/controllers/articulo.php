@@ -81,6 +81,17 @@ class Articulo extends CI_Controller {
 		$this->load->view('pie');
 	}
 
+
+	public function fichas()
+	{
+		$data['menu']="articulo";
+		$this->load->view('cabecera',$data);
+		$data['item'] = $this->articulo_model->get_articulo();
+		$this->load->view('articulo/fichas',$data);
+		$this->load->view('pie');
+	}
+
+
 		public function alta()
 	{
 		$this->load->library('form_validation');
@@ -174,6 +185,8 @@ class Articulo extends CI_Controller {
 						$this->load->view('cabecera',$data);
 						$this->load->model('clasificacion_model');
 						$this->load->model('dependencia_model');
+						$this->load->model('responsables_model');
+						$data['responsables'] = $this->responsables_model->get_responsables();
 						$data['item'] = $this->clasificacion_model->get_clasificacion();
 						$data['dependencias'] = $this->dependencia_model->get_dependencia();
 						$data['articulos'] = $this->articulo_model->buscar();
@@ -282,6 +295,8 @@ class Articulo extends CI_Controller {
 						$this->load->view('cabecera',$data);
 						$this->load->model('clasificacion_model');
 						$this->load->model('dependencia_model');
+						$this->load->model('responsables_model');
+						$data['responsables'] = $this->responsables_model->get_responsables();
 						$data['item'] = $this->clasificacion_model->get_clasificacion();
 						$data['dependencias'] = $this->dependencia_model->get_dependencia();
 						$data['articulos'] = $this->articulo_model->buscar();

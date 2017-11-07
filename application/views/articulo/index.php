@@ -31,7 +31,6 @@
                 <th style="width: 100px;">Proyecto</th>
                 <th style="width: 26px;"></th>
                 <th style="width: 26px;"></th>
-                <th style="width: 26px;"></th>
               </tr>
             </tr>
           </thead>
@@ -46,7 +45,6 @@
               <td><?php echo $articulos['serie']; ?></td>
               <td><?php echo $articulos['nombre']; ?></td>
               <td><?php echo $articulos['proyecto_nombre']; ?></td>
-              <td><a href="<?php echo base_url()."articulo/ficha/".$articulos['id_articulo']?>">Ficha</a></td>
               <td><a href="<?php echo base_url()."articulo/editar/".$articulos['id_articulo']?>">Editar</a></td>
               <td><a href="<?php echo base_url()."articulo/eliminar/".$articulos['id_articulo']?>">Eliminar</a></td>
             </tr>

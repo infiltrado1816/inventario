@@ -1,7 +1,7 @@
 <div id="page-wrapper" >
   <ul class="breadcrumb">
     <li><a href="<?php echo base_url();?>">Inicio</a></li>
-      <li><a href="<?php echo base_url().'articulo';?>">Articulos</a></li>
+      <li><a href="<?php echo base_url().'articulo/fichas';?>">Articulos</a></li>
     <li class="active">Ficha</li>
   </ul>
   <!-- /. breadcrumb  -->
@@ -19,6 +19,10 @@
         <input class="form-control" name="descripcion" value="<?php echo $item['descripcion']; ?>" />
       </div>
       <div class="form-group " >
+        <label>Clasificación</label>
+        <input class="form-control" name="responsable" value="<?php echo $item['clasificacionesnombre']; ?>" />
+      </div>
+      <div class="form-group " >
         <label>Número Emco</label>
         <input class="form-control" name="numeroemco" value="<?php echo $item['numeroemco']; ?>" />
       </div>
@@ -29,6 +33,15 @@
       <div class="form-group " >
         <label>Número de Factura</label>
         <input class="form-control" name="factura" value="<?php echo $item['factura']; ?>" />
+      </div>
+       <div class="form-group " >
+        <label>Proyecto</label>
+        <input class="form-control" name="proyecto" value="<?php echo $item['proyecto_nombre']; ?>" />
+      </div>
+
+      <div class="form-group " >
+        <label>Responsable</label>
+        <input class="form-control" name="responsable" value="<?php echo $item['responsables_apellido']." ".$item['responsables_nombre']; ?>" />
       </div>
     
       </div>

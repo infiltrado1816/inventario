@@ -52,6 +52,7 @@
                 <th>Descripción</th>
                 <th style="width: 200px;">N° serie</th>
                  <th>Dependencia</th>
+                   <th>Responsable</th>
               </tr>
             </tr>
           </thead>
@@ -65,6 +66,7 @@
               <td><?php echo $articulos['descripcion']; ?></td>
               <td><?php echo $articulos['serie']; ?></td>
               <td><?php echo $articulos['nombre']; ?></td>
+                 <td><?php echo $articulos['responsables_apellido']." ".$articulos['responsables_nombre']; ?></td>
             
             </tr>
             <?php $i++; endforeach ?>

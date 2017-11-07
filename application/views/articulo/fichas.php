@@ -2,36 +2,13 @@
 
     <ul class="breadcrumb">
       <li><a href="<?php echo base_url();?>">Inicio</a></li>
-      <li class="active">Planchetas Clasificación</li>
+      <li class="active">Articulos</li>
+       <li class="active">Fichas</li>
     </ul>
     <!-- /. breadcrumb  -->
     
     
     <hr />  
-
-<div class="panel-body">
-           <div class="form-group " >
-          
-            <?php echo form_open(base_url().'plancheta/clasificacion') ?>
-               
-                <div class="col-md-1">
-                  <label>Clasificaciones</label>
-                </div>
-                <div class="col-md-3">
-                    
-                    <select class="form-control" onchange="this.form.submit()" name="clasificacion_id">
-                    <option ></option>
-                    <?php $i=1; foreach ($clasificacion_item as $clasificacion): ?>
-                    <option value="<?php echo $clasificacion['id']; ?>" <?php if($clasificacion_id==$clasificacion['id']){echo "selected";}?> ><?php echo $clasificacion['nombre']; ?></option>
-                    <?php $i++; endforeach ?>                                  
-                    </select>
-                </div>
-                <div class="col-md-2">
-                     <button type="submit"  class="btn btn-primary">Buscar</button> 
-                </div>
-                <?php echo form_close(); ?>
-              </div>
-            </div>
 
 
     <!-- Advanced Tables -->
@@ -39,20 +16,22 @@
       <div class="panel-heading">
 
         
-        Articulos de la clasificacion
+        Listado de Articulos
       </div>
       <div class="panel-body">
         <div class="table-responsive">
-          <table class="table table-striped table-bordered table-hover">
+          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
               <tr>
                 <th style="width: 26px;">#</th>
                 <th style="width: 100px;">N° EMCO</th>
-                <th>Clasificación</th>
+                <th>Artículo</th>
                 <th>Descripción</th>
                 <th style="width: 200px;">N° serie</th>
-                 <th>Dependencia</th>
-                  <th>Responsable</th>
+                <th style="width: 200px;">Dependencia</th>
+                <th style="width: 200px;">Responsable</th>
+                <th style="width: 100px;">Proyecto</th>
+                <th style="width: 26px;"></th>
               </tr>
             </tr>
           </thead>
@@ -67,7 +46,8 @@
               <td><?php echo $articulos['serie']; ?></td>
               <td><?php echo $articulos['nombre']; ?></td>
               <td><?php echo $articulos['responsables_apellido']." ".$articulos['responsables_nombre']; ?></td>
-            
+              <td><?php echo $articulos['proyecto_nombre']; ?></td>
+              <td><a href="<?php echo base_url()."articulo/ficha/".$articulos['id_articulo']?>">Ficha</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>
@@ -77,7 +57,9 @@
     </div>
 
     <div class="panel-footer">
-   </div>
+      <a href="<?php echo base_url();?>articulo/alta" class="btn btn-primary">Nuevo Articulo</a>
+      
+    </div>
     <!--End panel-footer -->
 
   </div>

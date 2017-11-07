@@ -47,6 +47,7 @@
                 <th>Clasificación</th>
                 <th>Descripción</th>
                 <th style="width: 200px;">N° serie</th>
+                 <th>Responsable</th>
                
               </tr>
             </tr>
@@ -60,6 +61,7 @@
               <td><?php echo $articulos['clasificacionesnombre']; ?></td>
               <td><?php echo $articulos['descripcion']; ?></td>
               <td><?php echo $articulos['serie']; ?></td>
+               <td><?php echo $articulos['responsables_apellido']." ".$articulos['responsables_nombre'];  ?></td>
             
             </tr>
             <?php $i++; endforeach ?>

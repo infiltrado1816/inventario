@@ -87,6 +87,10 @@
                                 <a href="<?php echo base_url(); ?>articulo/reparacion">
                                     <i class="fa fa-medkit fa-3x"></i> Reparación</a>
                             </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>articulo/fichas">
+                                    <i class="fa fa-id-card fa-3x"></i> Fichas</a>
+                            </li>
                         </ul>
 
                 </li>
@@ -113,7 +117,7 @@
                               </li>
                                <li>
                                   <a href="<?php echo base_url(); ?>responsables">
-                                      <i class="fa fa-clone fa-3x"></i> Responsables</a>
+                                      <i class="fa fa-address-book fa-3x"></i> Responsables</a>
                               </li>
                        </ul>
                   </li>
