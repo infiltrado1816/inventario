@@ -111,6 +111,10 @@
                                   <a href="<?php echo base_url(); ?>proyecto">
                                       <i class="fa fa-clone fa-3x"></i> Proyectos</a>
                               </li>
+                               <li>
+                                  <a href="<?php echo base_url(); ?>responsables">
+                                      <i class="fa fa-clone fa-3x"></i> Responsables</a>
+                              </li>
                        </ul>
                   </li>
                 <li>
