@@ -41,7 +41,7 @@ class Dependencia extends CI_Controller {
 	public function editar($id)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nombre', 'nombre', 'required|is_unique[dependencias.nombre]|max_length[45]');
+		$this->form_validation->set_rules('nombre', 'nombre', 'required|max_length[45]');
 		if ($this->form_validation->run() == FALSE)
 			{
 				$data['menu']="dependencia";

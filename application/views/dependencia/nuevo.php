@@ -14,15 +14,46 @@
    <div class="panel-body">
 
     <div class="col-md-6">
-      
-
-       <div class="form-group " >
+      <div class="form-group " >
         <label>Nombre</label>
         <input class="form-control" name="nombre" value="<?php echo set_value('nombre'); ?>" />
          <span class="text-danger"><?php echo form_error('nombre'); ?></span>
       </div>
     </div>
-    <!-- /. col-md-6  -->               
+    <!-- /. col-md-6  --> 
+
+<div class="col-md-6">
+    <div class="col-md-12">
+      <div class="form-group " >
+        <label>Firma Nombre </label>
+        <input class="form-control" name="firma_nombre" value="<?php echo set_value('firma_nombre'); ?>" />
+         <span class="text-danger"><?php echo form_error('firma_nombre'); ?></span>
+      </div>
+    </div>
+    <!-- /. col-md-6  --> 
+
+
+    <div class="col-md-12">
+      <div class="form-group " >
+        <label>Firma Grado </label>
+        <input class="form-control" name="firma_grado" value="<?php echo set_value('firma_grado'); ?>" />
+         <span class="text-danger"><?php echo form_error('firma_grado'); ?></span>
+      </div>
+    </div>
+    <!-- /. col-md-6  --> 
+
+
+    <div class="col-md-12">
+      <div class="form-group " >
+        <label>Firma Título</label>
+        <input class="form-control" name="firma_titulo" value="<?php echo set_value('firma_titulo'); ?>" />
+         <span class="text-danger"><?php echo form_error('firma_titulo'); ?></span>
+      </div>
+    </div>
+    <!-- /. col-md-6  --> 
+ </div>
+    <!-- /. col-md-12  -->
+
    
   </div>
   <!-- /. panel-body  -->

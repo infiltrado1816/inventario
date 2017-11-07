@@ -19,6 +19,7 @@ class Plancheta extends CI_Controller {
 			$data['dependencias_id']=$this->input->post('dependencias_id');
 			$this->load->view('cabecera',$data);
 			$data['dependencia_item'] = $this->dependencia_model->get_dependencia();
+      $data['dependencia'] = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
 			$data['item'] = $this->plancheta_model->get_plancheta_dependencia();
 			$this->load->view('plancheta/dependencia',$data);
 			$this->load->view('pie');		
