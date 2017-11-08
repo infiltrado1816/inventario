@@ -75,7 +75,7 @@
     <div class="col-md-12">
       <div class="form-group " >
         <label>Firma Nombre </label>
-        <input class="form-control" name="firma_nombre" value="<?php echo  $dependencia['firma_nombre']; ?>" />
+        <input class="form-control" name="firma_nombre_iz"  />
          <span class="text-danger"><?php echo form_error('firma_nombre'); ?></span>
       </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="col-md-12">
       <div class="form-group " >
         <label>Firma Grado </label>
-        <input class="form-control" name="firma_grado" value="<?php echo  $dependencia['firma_grado']; ?>" />
+        <input class="form-control" name="firma_grado_iz" />
          <span class="text-danger"><?php echo form_error('firma_grado'); ?></span>
       </div>
     </div>
@@ -95,7 +95,7 @@
     <div class="col-md-12">
       <div class="form-group " >
         <label>Firma Título</label>
-        <input class="form-control" name="firma_titulo" value="<?php echo  $dependencia['firma_titulo']; ?>" />
+        <input class="form-control" name="firma_titulo_iz"  />
          <span class="text-danger"><?php echo form_error('firma_titulo'); ?></span>
       </div>
     </div>
