@@ -176,7 +176,7 @@ input {
 
                 <p><label for="password">Contraseña</label></p>
                 <p><input class="form-control" placeholder="" name="password" type="password" value="">
-                                     <span class="text-danger"><?php echo form_error('password'); ?></span></p> <!-- JS because of IE support; better: placeholder="password" -->
+                                     <span autocomplete="off" class="text-danger"><?php echo form_error('password'); ?></span></p> <!-- JS because of IE support; better: placeholder="password" -->
 
                 <p><input type="submit" value="Iniciar"></p>
 

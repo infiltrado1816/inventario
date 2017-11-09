@@ -50,5 +50,12 @@ class usuario_model extends CI_Model {
 		return $this->db->update('usuarios', $data);;
 	}
 
+	public function edit_password($id)
+	{
+		$data = array('password' =>  md5($this->input->post('password')));
+		$this->db->where('id', $id);
+		return $this->db->update('usuarios', $data);;
+	}
+
 }
 
