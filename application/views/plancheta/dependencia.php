@@ -71,80 +71,23 @@
 
 
 
-      <div class="col-md-6">
-    <div class="col-md-12">
-      <div class="form-group " >
-        <label>Firma Nombre </label>
-        <input class="form-control" name="firma_nombre_iz"  />
-         <span class="text-danger"><?php echo form_error('firma_nombre'); ?></span>
-      </div>
-    </div>
-    <!-- /. col-md-6  --> 
-
-
-    <div class="col-md-12">
-      <div class="form-group " >
-        <label>Firma Grado </label>
-        <input class="form-control" name="firma_grado_iz" />
-         <span class="text-danger"><?php echo form_error('firma_grado'); ?></span>
-      </div>
-    </div>
-    <!-- /. col-md-6  --> 
-
-
-    <div class="col-md-12">
-      <div class="form-group " >
-        <label>Firma Título</label>
-        <input class="form-control" name="firma_titulo_iz"  />
-         <span class="text-danger"><?php echo form_error('firma_titulo'); ?></span>
-      </div>
-    </div>
-    <!-- /. col-md-6  --> 
- </div>
-    <!-- /. col-md-12  -->
-
-    <div class="col-md-6">
-    <div class="col-md-12">
-      <div class="form-group " >
-        <label>Firma Nombre </label>
-        <input class="form-control" name="firma_nombre" value="<?php echo  $dependencia['firma_nombre']; ?>" />
-         <span class="text-danger"><?php echo form_error('firma_nombre'); ?></span>
-      </div>
-    </div>
-    <!-- /. col-md-6  --> 
-
-
-    <div class="col-md-12">
-      <div class="form-group " >
-        <label>Firma Grado </label>
-        <input class="form-control" name="firma_grado" value="<?php echo  $dependencia['firma_grado']; ?>" />
-         <span class="text-danger"><?php echo form_error('firma_grado'); ?></span>
-      </div>
-    </div>
-    <!-- /. col-md-6  --> 
-
-
-    <div class="col-md-12">
-      <div class="form-group " >
-        <label>Firma Título</label>
-        <input class="form-control" name="firma_titulo" value="<?php echo  $dependencia['firma_titulo']; ?>" />
-         <span class="text-danger"><?php echo form_error('firma_titulo'); ?></span>
-      </div>
-    </div>
-    <!-- /. col-md-6  --> 
- </div>
-    <!-- /. col-md-12  -->
-
-
    
   </div>
     </div>
 
     <div class="panel-footer">
+    
       <?php echo form_open(base_url().'plancheta/pdf_dependencias') ?>    
       <input type="hidden" name="dependencias_id" value="<?php echo $dependencias_id; ?> ">
-        <button type="submit"  class="btn btn-primary">Generar Plancheta</button>   
+        <button type="submit"  class="btn btn-primary">Exportar a XLS</button>   
       <?php echo form_close(); ?>
+<br>
+      <?php $attributes = array('target' => '_blank');?>
+       <?php echo form_open(base_url().'plancheta/plancheta_dependencia',$attributes) ?>    
+        <input type="hidden" name="dependencias_id" value="<?php echo $dependencias_id; ?> ">
+        <button type="submit"  class="btn btn-primary">Generar Plancheta Para Imprimir</button>   
+      <?php echo form_close(); ?>
+
 
     </div>
     <!--End panel-footer -->

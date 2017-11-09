@@ -96,6 +96,28 @@ class Plancheta extends CI_Controller {
         $objWriter = PHPExcel_IOFactory::createWriter($this->phpexcel, 'Excel2007');
         $objWriter->save('php://output');
     }
+
+
+
+
+    public function plancheta_dependencia()
+  {
+
+      $this->load->model('dependencia_model');
+      $data['item'] = $this->plancheta_model->get_plancheta_dependencia();
+      $data['dependencia'] = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
+
+
+      $data['menu']="dependencia";
+      //$this->load->view('cabecera',$data);
+      $this->load->view('plancheta/plancheta_dependencia',$data);
+     // $this->load->view('pie');   
+
+
+  
+    }
+
+
 public function xls_dependencias()
 	{
       $this->load->model('dependencia_model');
