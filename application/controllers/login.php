@@ -21,8 +21,8 @@ class Login extends CI_Controller {
 	{
 		$this->load->model('usuario_model');
 		$this->load->library(array('form_validation'));
-		$this->form_validation->set_rules('login', 'Login', 'required');
-		$this->form_validation->set_rules('password', 'Contraseña', 'required');
+		$this->form_validation->set_rules('usu_login', 'Login', 'required');
+		$this->form_validation->set_rules('usu_password', 'Contraseña', 'required');
 
 		if ($this->form_validation->run() == FALSE)
 			{
@@ -34,18 +34,18 @@ class Login extends CI_Controller {
 		{
 			
 
-				$user_data=$this->usuario_model->get_usuario_access($this->input->post('login'));
+				$user_data=$this->usuario_model->get_usuario_access($this->input->post('usu_login'));
 				if($user_data == TRUE)
 				{
-					if($user_data['password']==  md5($this->input->post('password')))
+					if($user_data['usu_password']==  ($this->input->post('usu_password')))
 					{
 						$data = array(
 	                'is_logued_in' 	=> 		TRUE,
-	                'id' 	=> 		$user_data['id'],
-	                'perfil'		=>		$user_data['perfil'],
-	                'nombre' 		=> 		$user_data['nombre'],
-	                'apellido' 		=> 		$user_data['apellido'],
-	                'login' 		=> 		$user_data['login']
+	                'id' 	=> 		$user_data['usu_id'],
+	                'perfil'		=>		$user_data['usu_perfil'],
+	                'nombre' 		=> 		$user_data['usu_nombre'],
+	                'apellido' 		=> 		$user_data['usu_apellido'],
+	                'login' 		=> 		$user_data['usu_login']
 
             		);	
 						$this->session->set_userdata($data);

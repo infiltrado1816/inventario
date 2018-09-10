@@ -21,7 +21,7 @@
                     <form  class="form-horizontal" method="post" >
                            <div class="form-group " >
         <label>Perfil</label>
-        <select class="form-control" name="perfil">
+        <select class="form-control" name="usu_perfil">
           <option value="Usuario">Usuario</option>
           <option value="Administrador">Administrador</option>
         </select>
@@ -29,27 +29,27 @@
       </div>
     <div class="form-group " >
         <label>Login</label>
-        <input class="form-control" name="login" value="<?php echo set_value('login'); ?>" />
-         <span class="text-danger"><?php echo form_error('login'); ?></span>
+        <input class="form-control" name="usu_login" value="<?php echo set_value('usu_login'); ?>" />
+         <span class="text-danger"><?php echo form_error('usu_login'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Nombre</label>
-        <input class="form-control" name="nombre" value="<?php echo set_value('nombre'); ?>" />
-         <span class="text-danger"><?php echo form_error('nombre'); ?></span>
+        <input class="form-control" name="usu_nombre" value="<?php echo set_value('usu_nombre'); ?>" />
+         <span class="text-danger"><?php echo form_error('usu_nombre'); ?></span>
       </div>
 
 
       <div class="form-group " >
         <label>Apellido</label>
-        <input class="form-control" name="apellido" value="<?php echo set_value('apellido'); ?>" />
-         <span class="text-danger"><?php echo form_error('apellido'); ?></span>
+        <input class="form-control" name="usu_apellido" value="<?php echo set_value('usu_apellido'); ?>" />
+         <span class="text-danger"><?php echo form_error('usu_apellido'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Password</label>
-        <input class="form-control" name="password" value="<?php echo set_value('password'); ?>" />
-         <span class="text-danger"><?php echo form_error('password'); ?></span>
+        <input class="form-control" name="usu_password" value="<?php echo set_value('usu_password'); ?>" />
+         <span class="text-danger"><?php echo form_error('usu_password'); ?></span>
       </div>
 
                         <div class="form-group"> 

@@ -11,10 +11,10 @@ class Plancheta extends CI_Controller {
 	{		
 			$this->load->model('dependencia_model');
 			$data['menu']="dependencia";
-			$data['dependencias_id']=$this->input->post('dependencias_id');
+			$data['dep_id']=$this->input->post('dep_id');
 			$this->load->view('cabecera',$data);
 			$data['dependencia_item'] = $this->dependencia_model->get_dependencia();
-      $data['dependencia'] = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
+      $data['dependencia'] = $this->dependencia_model->get_dependencia($this->input->post('dep_id'));
 			$data['item'] = $this->plancheta_model->get_plancheta_dependencia();
 			$this->load->view('plancheta/dependencia',$data);
 			$this->load->view('pie');		
@@ -23,7 +23,7 @@ class Plancheta extends CI_Controller {
 	{		
 			$this->load->model('clasificacion_model');
 			$data['menu']="clasificacion";
-			$data['clasificacion_id']=$this->input->post('clasificacion_id');
+			$data['cla_id']=$this->input->post('cla_id');
 			$this->load->view('cabecera',$data);
 			$data['clasificacion_item'] = $this->clasificacion_model->get_clasificacion();
 			$data['item'] = $this->plancheta_model->get_plancheta_clasificacion();
@@ -66,17 +66,17 @@ class Plancheta extends CI_Controller {
         // agregamos información a las celdas
       $this->load->model('dependencia_model');
       $item = $this->plancheta_model->get_plancheta_dependencia();
-      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
+      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dep_id'));
       $i=1;
       $j=12;
-      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['nombre']);
+      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['dep_nombre']);
       foreach ($item as $key ) {
         $this->phpexcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$j, $i)
         ->setCellValue('C'.$j, '1')
-        ->setCellValue('D'.$j, $key['descripcion'])
-        ->setCellValue('E'.$j, $key['serie'])
-        ->setCellValue('F'.$j, $key['numeroemco']);
+        ->setCellValue('D'.$j, $key['art_descripcion'])
+        ->setCellValue('E'.$j, $key['art_serie'])
+        ->setCellValue('F'.$j, $key['art_numeroemco']);
         $i++;
         $j++;
       }  
@@ -105,7 +105,7 @@ class Plancheta extends CI_Controller {
 
       $this->load->model('dependencia_model');
       $data['item'] = $this->plancheta_model->get_plancheta_dependencia();
-      $data['dependencia'] = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));
+      $data['dependencia'] = $this->dependencia_model->get_dependencia($this->input->post('dep_id'));
 
 
       $data['menu']="dependencia";

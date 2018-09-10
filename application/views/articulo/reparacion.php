@@ -30,12 +30,12 @@
             <?php $i=1; foreach ($articulos as $articulo): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $articulo['numeroemco']; ?></td>
-              <td><?php echo $articulo['clasificacionesnombre']; ?></td>
-              <td><?php echo $articulo['descripcion']; ?></td>
-              <td><?php echo $articulo['serie']; ?></td>
-              <td><?php echo $articulo['nombre']; ?></td>
-              <td> <a  href="<?php echo base_url();?>articulo\reparacionobs\<?php echo $articulo['id_articulo']; ?>">Reparar</a>
+              <td><?php echo $articulo['art_numeroemco']; ?></td>
+              <td><?php echo $articulo['cla_nombre']; ?></td>
+              <td><?php echo $articulo['art_descripcion']; ?></td>
+              <td><?php echo $articulo['art_serie']; ?></td>
+              <td><?php echo $articulo['dep_nombre']; ?></td>
+              <td> <a  href="<?php echo base_url();?>articulo\reparacionobs\<?php echo $articulo['art_id']; ?>">Reparar</a>
             </td>
          
             </tr>
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="panel-footer">
-      <span class="text-danger"><?php echo form_error('id_articulo'); ?></span>
+      <span class="text-danger"><?php echo form_error('art_id'); ?></span>
     </div>
     <!--End panel-footer -->
   </div>

@@ -40,30 +40,25 @@
             <?php $i=1; foreach ($item as $articulos): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $articulos['numeroemco']; ?></td>
-              <td><?php echo $articulos['clasificacionesnombre']; ?></td>
-              <td><?php echo $articulos['descripcion']; ?></td>
-              <td><?php echo $articulos['serie']; ?></td>
-              <td><?php echo $articulos['nombre']; ?></td>
-              <td><?php echo $articulos['responsables_apellido']." ".$articulos['responsables_nombre']; ?></td>
-              <td><?php echo $articulos['proyecto_nombre']; ?></td>
-              <td><a href="<?php echo base_url()."articulo/ficha/".$articulos['id_articulo']?>">Ficha</a></td>
+              <td><?php echo $articulos['art_numeroemco']; ?></td>
+              <td><?php echo $articulos['cla_nombre']; ?></td>
+              <td><?php echo $articulos['art_descripcion']; ?></td>
+              <td><?php echo $articulos['art_serie']; ?></td>
+              <td><?php echo $articulos['dep_nombre']; ?></td>
+              <td><?php echo $articulos['res_apellido']." ".$articulos['res_nombre']; ?></td>
+              <td><?php echo $articulos['pro_nombre']; ?></td>
+              <td><a href="<?php echo base_url()."articulo/ficha/".$articulos['art_id']?>">Ficha</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>
         </table>
       </div>
-
     </div>
-
     <div class="panel-footer">
       <a href="<?php echo base_url();?>articulo/alta" class="btn btn-primary">Nuevo Articulo</a>
-      
     </div>
     <!--End panel-footer -->
-
   </div>
   <!--End Advanced Tables -->
-
 </div>
   <!-- /. PAGE WRAPPER  -->

@@ -95,14 +95,11 @@ class Articulo extends CI_Controller {
 		public function alta()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('descripcion', 'descripcion', 'required|max_length[255]');
-		//$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
-
-
-		$this->form_validation->set_rules('serie', 'serie', 'max_length[100]');
-		$this->form_validation->set_rules('factura', 'factura', 'max_length[45]');
-		$this->form_validation->set_rules('clasificaciones_id', 'Clasificación', 'required');
-		$this->form_validation->set_rules('proyectos_id', 'Proyecto', 'required');
+		$this->form_validation->set_rules('art_descripcion', 'descripcion', 'required|max_length[255]');
+		$this->form_validation->set_rules('art_serie', 'serie', 'max_length[100]');
+		$this->form_validation->set_rules('art_factura', 'factura', 'max_length[45]');
+		$this->form_validation->set_rules('cla_id', 'Clasificación', 'required');
+		$this->form_validation->set_rules('pro_id', 'Proyecto', 'required');
 		
 		
 		if ($this->form_validation->run() == FALSE)
@@ -128,12 +125,11 @@ class Articulo extends CI_Controller {
 	public function editar($id_articulo)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('descripcion', 'descripcion', 'required|max_length[255]');
-		//$this->form_validation->set_rules('numeroemco', 'Número Emco', 'required|max_length[45]');
-		$this->form_validation->set_rules('serie', 'serie', 'max_length[100]');
-		$this->form_validation->set_rules('factura', 'factura', 'max_length[45]');
-		$this->form_validation->set_rules('clasificaciones_id', 'Clasificación', 'required');
-		$this->form_validation->set_rules('proyectos_id', 'Proyecto', 'required');
+		$this->form_validation->set_rules('art_descripcion', 'descripcion', 'required|max_length[255]');
+		$this->form_validation->set_rules('art_serie', 'serie', 'max_length[100]');
+		$this->form_validation->set_rules('art_factura', 'factura', 'max_length[45]');
+		$this->form_validation->set_rules('cla_id', 'Clasificación', 'required');
+		$this->form_validation->set_rules('pro_id', 'Proyecto', 'required');
 		
 		
 		if ($this->form_validation->run() == FALSE)
@@ -178,7 +174,7 @@ class Articulo extends CI_Controller {
 	public function pase()
 		{
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('id_articulo', 'Articulo', 'required');
+			$this->form_validation->set_rules('art_id', 'Articulo', 'required');
 				if ($this->form_validation->run() == FALSE)
 					{
 						$data['menu']="articulo";
@@ -208,7 +204,7 @@ class Articulo extends CI_Controller {
 		public function prestamo()
 		{
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('id_articulo', 'Articulo', 'required');
+			$this->form_validation->set_rules('art_id', 'Articulo', 'required');
 				if ($this->form_validation->run() == FALSE)
 					{
 						$data['menu']="articulo";
@@ -218,6 +214,8 @@ class Articulo extends CI_Controller {
 						$data['item'] = $this->clasificacion_model->get_clasificacion();
 						$data['dependencias'] = $this->dependencia_model->get_dependencia();
 						$data['articulos'] = $this->articulo_model->buscar();
+						$data['cla_id']=$this->input->post('cla_id');
+			
 						$this->load->view('articulo/prestamo',$data);
 						$this->load->view('pie');
 
@@ -237,7 +235,7 @@ class Articulo extends CI_Controller {
 		public function retorno()
 		{
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('id_articulo', 'Articulo', 'required');
+			$this->form_validation->set_rules('art_id', 'Articulo', 'required');
 				if ($this->form_validation->run() == FALSE)
 					{
 						$data['menu']="articulo";
@@ -270,7 +268,7 @@ class Articulo extends CI_Controller {
 		{
 
 				$this->load->library('form_validation');
-				$this->form_validation->set_rules('observacion', 'Observacion', 'required|max_length[254]');
+				$this->form_validation->set_rules('his_observacion', 'Observacion', 'required|max_length[254]');
 				if ($this->form_validation->run() == FALSE)
 					{
 						$data['menu']="articulo";
@@ -321,17 +319,17 @@ class Articulo extends CI_Controller {
          
         // agregamos información a las celdas       
       $this->load->model('dependencia_model');   
-      $key = $this->articulo_model->get_articulo($this->input->post('id_articulo'));
-      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dependencias_id'));      
+      $key = $this->articulo_model->get_articulo($this->input->post('art_id'));
+      $dependencia = $this->dependencia_model->get_dependencia($this->input->post('dep_id'));      
       $i=1;
       $j=12; 
-      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['nombre']);      
+      $this->phpexcel->setActiveSheetIndex(0)->setCellValue('B'.$j, $i)->setCellValue('B7', 'DEPENDENCIA : '.$dependencia['dep_nombre']);      
       $this->phpexcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$j, $i)
         ->setCellValue('C'.$j, '1')
-        ->setCellValue('D'.$j, $key['descripcion'])
-        ->setCellValue('E'.$j, $key['serie'])
-        ->setCellValue('F'.$j, $key['numeroemco']);      
+        ->setCellValue('D'.$j, $key['art_descripcion'])
+        ->setCellValue('E'.$j, $key['art_serie'])
+        ->setCellValue('F'.$j, $key['art_numeroemco']);      
         // Renombramos la hoja de trabajo
         $this->phpexcel->getActiveSheet()->setTitle('Prestamo Inventario');     
         // configuramos el documento para que la hoja

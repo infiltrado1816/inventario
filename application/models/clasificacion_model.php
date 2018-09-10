@@ -9,29 +9,29 @@ class Clasificacion_model extends CI_Model {
 		if ($id === FALSE)
 		{
 			$this->db->from('clasificaciones');
-			$this->db->order_by("nombre", "asc"); 
+			$this->db->order_by("cla_nombre", "asc"); 
 			$query = $this->db->get(); 
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('clasificaciones', array('id' => $id));
+		$query = $this->db->get_where('clasificaciones', array('cla_id' => $id));
 		return $query->row_array();
 	}
 	public function set_clasificacion()
 	{
-		$data = array('nombre' => $this->input->post('nombre'));
+		$data = array('cla_nombre' => $this->input->post('cla_nombre'));
 		return $this->db->insert('clasificaciones', $data);
 	}	
-	public function edit_clasificacion($id)
+	public function edit_clasificacion($clas_id)
 	{
 		$data = array(
-			'nombre' => $this->input->post('nombre')
+			'cla_nombre' => $this->input->post('cla_nombre')
 			);
-			$this->db->where('id', $id);
+			$this->db->where('cla_id', $clas_id);
 		return $this->db->update('clasificaciones', $data);;
 	}
-	public function del_clasificacion($id)
+	public function del_clasificacion($clas_id)
 	{
-		return $this->db->delete('clasificaciones', array('id' => $id)); 
+		return $this->db->delete('clasificaciones', array('cla_id' => $cla_id)); 
 	
 	}
 }

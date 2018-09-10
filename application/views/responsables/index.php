@@ -27,10 +27,10 @@
           <?php $i=1; foreach ($responsables as $responsables_item): ?>
           <tr>
             <td><?php echo $i; ?></td>     
-            <td><?php echo $responsables_item['nombre']; ?></td>
-            <td><?php echo $responsables_item['apellido']; ?></td>     
-            <td><a href="<?php echo base_url()."responsables/editar/".$responsables_item['id']?>">Editar</a></td>
-            <td><a href="<?php echo base_url()."responsables/eliminar/".$responsables_item['id']?>">Eliminar</a></td>
+            <td><?php echo $responsables_item['res_nombre']; ?></td>
+            <td><?php echo $responsables_item['res_apellido']; ?></td>     
+            <td><a href="<?php echo base_url()."responsables/editar/".$responsables_item['res_id']?>">Editar</a></td>
+            <td><a href="<?php echo base_url()."responsables/eliminar/".$responsables_item['res_id']?>">Eliminar</a></td>
           </tr>
           <?php $i++; endforeach ?>
         </tbody>

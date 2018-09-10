@@ -171,12 +171,12 @@ input {
             <fieldset>
 
                 <p><label for="email">Usuario</label></p>
-                <p> <input class="form-control" placeholder="" name="login" type="login" autofocus>
-                                     <span class="text-danger"><?php echo form_error('login'); ?></span></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
+                <p> <input class="form-control" placeholder="" name="usu_login" type="login" autofocus>
+                                     <span class="text-danger"><?php echo form_error('usu_login'); ?></span></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
 
                 <p><label for="password">Contraseña</label></p>
-                <p><input class="form-control" placeholder="" name="password" type="password" value="">
-                                     <span autocomplete="off" class="text-danger"><?php echo form_error('password'); ?></span></p> <!-- JS because of IE support; better: placeholder="password" -->
+                <p><input class="form-control" placeholder="" name="usu_password" type="password" value="">
+                                     <span autocomplete="off" class="text-danger"><?php echo form_error('usu_password'); ?></span></p> <!-- JS because of IE support; better: placeholder="password" -->
 
                 <p><input type="submit" value="Iniciar"></p>
 

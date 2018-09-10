@@ -22,7 +22,7 @@ class Proyecto extends CI_Controller {
 		public function nuevo()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nombre', 'nombre', 'required|is_unique[proyectos.nombre]|max_length[45]');
+		$this->form_validation->set_rules('pro_nombre', 'Nombre', 'required|is_unique[proyectos.pro_nombre]|max_length[45]');
 		if ($this->form_validation->run() == FALSE)
 			{
 
@@ -41,7 +41,7 @@ class Proyecto extends CI_Controller {
 	public function editar($id)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nombre', 'nombre', 'required|is_unique[proyectos.nombre]|max_length[45]');
+		$this->form_validation->set_rules('pro_nombre', 'Nombre', 'required|is_unique[proyectos.pro_nombre]|max_length[45]');
 		if ($this->form_validation->run() == FALSE)
 			{
 				$data['menu']="proyecto";

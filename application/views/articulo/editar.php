@@ -21,50 +21,49 @@
                     <form  class="form-horizontal" method="post" >
                            <div class="form-group " >
         <label>Clasificación</label>
-        <select class="form-control" name="clasificaciones_id">
+        <select class="form-control" name="cla_id">
          <option value=""></option>
           <?php $i=1; foreach ($item as $clasificacion): ?>
-          <option value="<?php echo $clasificacion['id']; ?>" <?php if($clasificacion['id']===$articulo['clasificaciones_id']){ echo 'selected';} ?>><?php echo $clasificacion['nombre']; ?> </option>
+          <option value="<?php echo $clasificacion['cla_id']; ?>" <?php if($clasificacion['cla_id']===$articulo['cla_id']){ echo 'selected';} ?>><?php echo $clasificacion['cla_nombre']; ?> </option>
           <?php $i++; endforeach ?>                                  
         </select>
-        <span class="text-danger"><?php echo form_error('clasificaciones_id'); ?></span>
+        <span class="text-danger"><?php echo form_error('cla_id'); ?></span>
       </div>
     <div class="form-group " >
         <label>Descripción</label>
-        <input class="form-control" name="descripcion" value="<?php echo $articulo['descripcion']; ?>" />
-         <span class="text-danger"><?php echo form_error('descripcion'); ?></span>
+        <input class="form-control" name="art_descripcion" value="<?php echo $articulo['art_descripcion']; ?>" />
+         <span class="text-danger"><?php echo form_error('art_descripcion'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Número Emco</label>
-        <input class="form-control" name="numeroemco" value="<?php echo $articulo['numeroemco']; ?>" />
-         <span class="text-danger"><?php echo form_error('numeroemco'); ?></span>
+        <input class="form-control" name="art_numeroemco" value="<?php echo $articulo['art_numeroemco']; ?>" />
+         <span class="text-danger"><?php echo form_error('art_numeroemco'); ?></span>
       </div>
 
 
       <div class="form-group " >
         <label>Número de Serie</label>
-        <input class="form-control" name="serie" value="<?php echo $articulo['serie']; ?>" />
-         <span class="text-danger"><?php echo form_error('serie'); ?></span>
+        <input class="form-control" name="art_serie" value="<?php echo $articulo['art_serie']; ?>" />
+         <span class="text-danger"><?php echo form_error('art_serie'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Factura</label>
-        <input class="form-control" name="factura" value="<?php echo $articulo['factura']; ?>" />
-         <span class="text-danger"><?php echo form_error('factura'); ?></span>
+        <input class="form-control" name="art_factura" value="<?php echo $articulo['art_factura']; ?>" />
+         <span class="text-danger"><?php echo form_error('art_factura'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Proyecto</label>
-        <select class="form-control" name="proyectos_id">
+        <select class="form-control" name="pro_id">
          <option value=""></option>
           <?php $i=1; foreach ($proyectos as $proyecto): ?>
-          <option value="<?php echo $proyecto['id']; ?>" <?php if($proyecto['id']===$articulo['proyectos_id']){ echo 'selected';} ?>><?php echo $proyecto['nombre']; ?> </option>
+          <option value="<?php echo $proyecto['pro_id']; ?>" <?php if($proyecto['pro_id']===$articulo['pro_id']){ echo 'selected';} ?>><?php echo $proyecto['pro_nombre']; ?> </option>
           <?php $i++; endforeach ?>                                  
         </select>
-        <span class="text-danger"><?php echo form_error('proyectos_id'); ?></span>
+        <span class="text-danger"><?php echo form_error('pro_id'); ?></span>
       </div>
-
                         <div class="form-group"> 
                             <div class="aab controls col-md-4 "></div>
                             <div class="controls col-md-8 ">
@@ -80,12 +79,6 @@
         </div>
     </div> 
 </div>
-
-
-
-
-
-
 <?php echo form_close(); ?>
 </div>
 <!-- /. PAGE WRAPPER  -->

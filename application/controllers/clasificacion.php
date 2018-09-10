@@ -25,10 +25,9 @@ class Clasificacion extends CI_Controller {
 		public function nuevo()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nombre', 'nombre', 'required|is_unique[clasificaciones.nombre]|max_length[45]');
+		$this->form_validation->set_rules('cla_nombre', 'Nombre', 'required|is_unique[clasificaciones.cla_nombre]|max_length[45]');
 		if ($this->form_validation->run() == FALSE)
 			{
-
 				$data['menu']="clasificacion";
 				$this->load->view('cabecera',$data);
 				$this->load->view('clasificacion/nuevo',$data);
@@ -44,7 +43,7 @@ class Clasificacion extends CI_Controller {
 	public function editar($id)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nombre', 'nombre', 'required|is_unique[clasificaciones.nombre]|max_length[45]');
+		$this->form_validation->set_rules('cla_nombre', 'nombre', 'required|is_unique[clasificaciones.cla_nombre]|max_length[45]');
 		if ($this->form_validation->run() == FALSE)
 			{
 				$data['menu']="clasificacion";

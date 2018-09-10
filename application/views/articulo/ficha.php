@@ -16,32 +16,32 @@
       <div class="col-md-6">
       <div class="form-group " >
         <label>Descripción</label>
-        <input class="form-control" name="descripcion" value="<?php echo $item['descripcion']; ?>" />
+        <input class="form-control" name="art_descripcion" value="<?php echo $item['art_descripcion']; ?>" />
       </div>
       <div class="form-group " >
         <label>Clasificación</label>
-        <input class="form-control" name="responsable" value="<?php echo $item['clasificacionesnombre']; ?>" />
+        <input class="form-control" name="art_responsable" value="<?php echo $item['cla_nombre']; ?>" />
       </div>
       <div class="form-group " >
         <label>Número Emco</label>
-        <input class="form-control" name="numeroemco" value="<?php echo $item['numeroemco']; ?>" />
+        <input class="form-control" name="art_numeroemco" value="<?php echo $item['art_numeroemco']; ?>" />
       </div>
       <div class="form-group " >
         <label>Número de Serie</label>
-        <input class="form-control" name="serie" value="<?php echo $item['serie']; ?>" />
+        <input class="form-control" name="art_serie" value="<?php echo $item['art_serie']; ?>" />
       </div>
       <div class="form-group " >
         <label>Número de Factura</label>
-        <input class="form-control" name="factura" value="<?php echo $item['factura']; ?>" />
+        <input class="form-control" name="art_factura" value="<?php echo $item['art_factura']; ?>" />
       </div>
        <div class="form-group " >
         <label>Proyecto</label>
-        <input class="form-control" name="proyecto" value="<?php echo $item['proyecto_nombre']; ?>" />
+        <input class="form-control" name="art_proyecto" value="<?php echo $item['pro_nombre']; ?>" />
       </div>
 
       <div class="form-group " >
         <label>Responsable</label>
-        <input class="form-control" name="responsable" value="<?php echo $item['responsables_apellido']." ".$item['responsables_nombre']; ?>" />
+        <input class="form-control" name="responsable" value="<?php echo $item['res_apellido']." ".$item['res_nombre']; ?>" />
       </div>
     
       </div>
@@ -53,7 +53,7 @@
               </div>  
         </div>
       <div class='row  panel-body'>  
-              <img src="<?php echo base_url();?>assets/uploads/thumbs/<?php echo 'img'.$item['id'].'_thumb.jpg';?>" width='400px' height='600px' class="img-responsive" alt="Responsive image">
+              <img src="<?php echo base_url();?>assets/uploads/thumbs/<?php echo 'img'.$item['art_id'].'_thumb.jpg';?>" width='400px' height='600px' class="img-responsive" alt="Responsive image">
       </div>
       <div class='row  panel-body'>
             <!--$ERROR MUESTRA LOS ERRORES QUE PUEDAN HABER AL SUBIR LA IMAGEN-->
@@ -61,7 +61,7 @@
               <div id="formulario_imagenes">
                   <span><?php echo validation_errors(); ?></span>
 
-                  <?=form_open_multipart(base_url()."articulo/do_upload/".$item['id'])?>
+                  <?=form_open_multipart(base_url()."articulo/do_upload/".$item['art_id'])?>
                   <div class="row">
                   <div class="col-md-6">
                   <input class="btn btn-default" type="file" name="userfile" />
@@ -111,11 +111,11 @@
             <?php $i=1; foreach ($historial as $historial_item): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $historial_item['fecha']; ?></td>
-              <td><?php echo $historial_item['tipo']; ?></td>
-              <td><?php echo $historial_item['nombre']; ?></td>
-              <td><?php echo $historial_item['login']; ?></td>
-              <td><?php echo $historial_item['observacion']; ?></td>
+              <td><?php echo $historial_item['his_fecha']; ?></td>
+              <td><?php echo $historial_item['his_tipo']; ?></td>
+              <td><?php echo $historial_item['dep_nombre']; ?></td>
+              <td><?php echo $historial_item['usu_login']; ?></td>
+              <td><?php echo $historial_item['his_observacion']; ?></td>
               
             </tr>
             <?php $i++; endforeach ?>

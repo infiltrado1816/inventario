@@ -24,10 +24,10 @@ header("Expires: 0");
             <?php $i=1; foreach ($item as $articulos): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $articulos['numeroemco']; ?></td>
-              <td><?php echo $articulos['clasificacionesnombre']; ?></td>
-              <td><?php echo $articulos['descripcion']; ?></td>
-              <td><?php echo $articulos['serie']; ?></td>
+              <td><?php echo $articulos['art_numeroemco']; ?></td>
+              <td><?php echo $articulos['cla_nombre']; ?></td>
+              <td><?php echo $articulos['art_descripcion']; ?></td>
+              <td><?php echo $articulos['art_serie']; ?></td>
             
             </tr>
             <?php $i++; endforeach ?>

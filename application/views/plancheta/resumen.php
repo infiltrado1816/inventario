@@ -38,8 +38,8 @@
             <tr>
               <td><?php echo $i; ?></td>
         
-              <td><?php echo $articulos['clasificacionesnombre']; ?></td>
-              <td><?php echo $articulos['cantidad']; ?></td>
+              <td><?php echo $articulos['art_nombre']; ?></td>
+              <td><?php echo $articulos['art_cantidad']; ?></td>
          
             
             </tr>

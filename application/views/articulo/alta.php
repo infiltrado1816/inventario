@@ -20,49 +20,49 @@
                     <form  class="form-horizontal" method="post" >
                            <div class="form-group " >
         <label>Clasificación</label>
-        <select class="form-control" name="clasificaciones_id">
+        <select class="form-control" name="cla_id">
          <option value=""></option>
           <?php $i=1; foreach ($item as $clasificacion): ?>
-          <option value="<?php echo $clasificacion['id']; ?>" <?php echo set_select('facturas_id',$clasificacion['id']); ?>><?php echo $clasificacion['nombre']; ?></option>
+          <option value="<?php echo $clasificacion['cla_id']; ?>" <?php echo set_select('cla_id',$clasificacion['cla_id']); ?>><?php echo $clasificacion['cla_nombre']; ?></option>
           <?php $i++; endforeach ?>                                  
         </select>
-        <span class="text-danger"><?php echo form_error('clasificaciones_id'); ?></span>
+        <span class="text-danger"><?php echo form_error('cla_id'); ?></span>
       </div>
     <div class="form-group " >
         <label>Descripción</label>
-        <input class="form-control" name="descripcion" value="<?php echo set_value('descripcion'); ?>" />
-         <span class="text-danger"><?php echo form_error('descripcion'); ?></span>
+        <input class="form-control" name="art_descripcion" value="<?php echo set_value('art_descripcion'); ?>" />
+         <span class="text-danger"><?php echo form_error('art_descripcion'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Número Emco</label>
-        <input class="form-control" name="numeroemco" value="<?php echo set_value('numeroemco'); ?>" />
-         <span class="text-danger"><?php echo form_error('numeroemco'); ?></span>
+        <input class="form-control" name="art_numeroemco" value="<?php echo set_value('art_numeroemco'); ?>" />
+         <span class="text-danger"><?php echo form_error('art_numeroemco'); ?></span>
       </div>
 
 
       <div class="form-group " >
         <label>Número de Serie</label>
-        <input class="form-control" name="serie" value="<?php echo set_value('serie'); ?>" />
-         <span class="text-danger"><?php echo form_error('serie'); ?></span>
+        <input class="form-control" name="art_serie" value="<?php echo set_value('art_serie'); ?>" />
+         <span class="text-danger"><?php echo form_error('art_serie'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Factura</label>
-        <input class="form-control" name="factura" value="<?php echo set_value('factura'); ?>" />
-         <span class="text-danger"><?php echo form_error('factura'); ?></span>
+        <input class="form-control" name="art_factura" value="<?php echo set_value('art_factura'); ?>" />
+         <span class="text-danger"><?php echo form_error('art_factura'); ?></span>
       </div>
 
 
       <div class="form-group " >
         <label>Proyecto</label>
-        <select class="form-control" name="proyectos_id">
+        <select class="form-control" name="pro_id">
          <option value=""></option>
           <?php $i=1; foreach ($proyectos as $proyecto): ?>
-          <option value="<?php echo $proyecto['id']; ?>" <?php echo set_select('proyectos_id',$proyecto['id']); ?>><?php echo $proyecto['nombre']; ?></option>
+          <option value="<?php echo $proyecto['pro_id']; ?>" <?php echo set_select('pro_id',$proyecto['pro_id']); ?>><?php echo $proyecto['pro_nombre']; ?></option>
           <?php $i++; endforeach ?>                                  
         </select>
-        <span class="text-danger"><?php echo form_error('proyectos_id'); ?></span>
+        <span class="text-danger"><?php echo form_error('pro_id'); ?></span>
       </div>
 
 

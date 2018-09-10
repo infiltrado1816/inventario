@@ -18,13 +18,13 @@
           <form  class="form-horizontal" method="post" >
            <div class="form-group " >
             <label>Nombre</label>
-            <input class="form-control" name="nombre" value="<?php echo set_value('nombre'); ?>" />
-            <span class="text-danger"><?php echo form_error('nombre'); ?></span>
+            <input class="form-control" name="res_nombre" value="<?php echo set_value('res_nombre'); ?>" />
+            <span class="text-danger"><?php echo form_error('res_nombre'); ?></span>
           </div>
           <div class="form-group " >
             <label>Apellido</label>
-            <input class="form-control" name="apellido" value="<?php echo set_value('apellido'); ?>" />
-            <span class="text-danger"><?php echo form_error('apellido'); ?></span>
+            <input class="form-control" name="res_apellido" value="<?php echo set_value('res_apellido'); ?>" />
+            <span class="text-danger"><?php echo form_error('res_apellido'); ?></span>
           </div>
           <div class="form-group"> 
             <div class="aab controls col-md-4 "></div>

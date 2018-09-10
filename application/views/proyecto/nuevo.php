@@ -18,8 +18,8 @@
 
        <div class="form-group " >
         <label>Nombre</label>
-        <input class="form-control" name="nombre" value="<?php echo set_value('nombre'); ?>" />
-         <span class="text-danger"><?php echo form_error('nombre'); ?></span>
+        <input class="form-control" name="pro_nombre" value="<?php echo set_value('pro_nombre'); ?>" />
+         <span class="text-danger"><?php echo form_error('pro_nombre'); ?></span>
       </div>
     </div>
     <!-- /. col-md-6  -->               

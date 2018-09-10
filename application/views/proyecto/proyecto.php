@@ -34,9 +34,9 @@
             <?php $i=1; foreach ($item as $proyecto): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $proyecto['nombre']; ?></td>
-              <td><a href="<?php echo base_url()."proyecto/editar/".$proyecto['id']?>">Editar</a></td>
-              <td><a href="<?php echo base_url()."proyecto/eliminar/".$proyecto['id']?>">Eliminar</a></td>
+              <td><?php echo $proyecto['pro_nombre']; ?></td>
+              <td><a href="<?php echo base_url()."proyecto/editar/".$proyecto['pro_id']?>">Editar</a></td>
+              <td><a href="<?php echo base_url()."proyecto/eliminar/".$proyecto['pro_id']?>">Eliminar</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>

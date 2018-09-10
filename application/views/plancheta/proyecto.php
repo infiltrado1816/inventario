@@ -1,14 +1,10 @@
   <div id="page-wrapper" >
-
     <ul class="breadcrumb">
       <li><a href="<?php echo base_url();?>">Inicio</a></li>
       <li class="active">Proyecto</li>
     </ul>
     <!-- /. breadcrumb  -->
-    
-    
     <hr />  
-
 <div class="panel-body">
            <div class="form-group " >
           
@@ -19,10 +15,10 @@
                 </div>
                 <div class="col-md-3">
                     
-                    <select class="form-control" onchange="this.form.submit()" name="proyecto_id">
+                    <select class="form-control" onchange="this.form.submit()" name="pro_id">
                     <option ></option>
                     <?php $i=1; foreach ($proyecto_item as $proyecto): ?>
-                    <option value="<?php echo $proyecto['id']; ?>" <?php if($proyecto_id==$proyecto['id']){echo "selected";}?> ><?php echo $proyecto['nombre']; ?></option>
+                    <option value="<?php echo $proyecto['pro_id']; ?>" <?php if($proyecto_id==$proyecto['pro_id']){echo "selected";}?> ><?php echo $proyecto['pro_nombre']; ?></option>
                     <?php $i++; endforeach ?>                                  
                     </select>
                 </div>
@@ -32,13 +28,9 @@
                 <?php echo form_close(); ?>
               </div>
             </div>
-
-
     <!-- Advanced Tables -->
     <div class="panel panel-primary">
       <div class="panel-heading">
-
-        
         Articulos de la proyecto
       </div>
       <div class="panel-body">
@@ -57,31 +49,25 @@
             </tr>
           </thead>
           <tbody>
-
             <?php $i=1; foreach ($item as $articulos): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $articulos['numeroemco']; ?></td>
-              <td><?php echo $articulos['clasificacionesnombre']; ?></td>
-              <td><?php echo $articulos['descripcion']; ?></td>
-              <td><?php echo $articulos['serie']; ?></td>
-              <td><?php echo $articulos['nombre']; ?></td>
-                 <td><?php echo $articulos['responsables_apellido']." ".$articulos['responsables_nombre']; ?></td>
-            
+              <td><?php echo $articulos['art_numeroemco']; ?></td>
+              <td><?php echo $articulos['cla_nombre']; ?></td>
+              <td><?php echo $articulos['art_descripcion']; ?></td>
+              <td><?php echo $articulos['art_serie']; ?></td>
+              <td><?php echo $articulos['dep_nombre']; ?></td>
+              <td><?php echo $articulos['res_apellido']." ".$articulos['res_nombre']; ?></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>
         </table>
       </div>
-
     </div>
-
     <div class="panel-footer">
    </div>
     <!--End panel-footer -->
-
   </div>
   <!--End Advanced Tables -->
-
 </div>
   <!-- /. PAGE WRAPPER  -->

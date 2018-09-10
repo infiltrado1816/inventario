@@ -16,10 +16,10 @@
                 <label>Clasificación</label>
               </div>
               <div class="col-md-3">
-                  <select class="form-control" onchange="this.form.submit()" name="clasificaciones_id">
+                  <select class="form-control" onchange="this.form.submit()" name="cla_id">
                   <option ></option>
                   <?php $i=1; foreach ($item as $clasificacion): ?>
-                  <option value="<?php echo $clasificacion['id']; ?>"><?php echo $clasificacion['nombre']; ?></option>
+                  <option value="<?php echo $clasificacion['cla_id']; ?>"><?php echo $clasificacion['cla_nombre']; ?></option>
                   <?php $i++; endforeach ?>                                  
                   </select>
               </div>
@@ -52,12 +52,12 @@
           <?php $i=1; foreach ($articulos as $articulo): ?>
           <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $articulo['numeroemco']; ?></td>
-            <td><?php echo $articulo['clasificacionesnombre']; ?></td>
-            <td><?php echo $articulo['descripcion']; ?></td>
-            <td><?php echo $articulo['serie']; ?></td>
-            <td><?php echo $articulo['nombre']; ?></td>
-            <td><div class="radio"><label><input type="radio" name="id_articulo" value="<?php echo $articulo['articulosid']?>"></label></div></td>
+            <td><?php echo $articulo['art_numeroemco']; ?></td>
+            <td><?php echo $articulo['cla_nombre']; ?></td>
+            <td><?php echo $articulo['art_descripcion']; ?></td>
+            <td><?php echo $articulo['art_serie']; ?></td>
+            <td><?php echo $articulo['dep_nombre']; ?></td>
+            <td><div class="radio"><label><input type="radio" name="art_id" value="<?php echo $articulo['art_id']?>"></label></div></td>
           </tr>
           <?php $i++; endforeach ?>
         </tbody>
@@ -65,7 +65,7 @@
     </div>
   </div>
   <div class="panel-footer">
-    <span class="text-danger"><?php echo form_error('id_articulo'); ?></span>
+    <span class="text-danger"><?php echo form_error('art_id'); ?></span>
   </div>
   <!--End panel-footer -->
 </div>
@@ -80,25 +80,25 @@
     
       <div class="form-group " >
       <label>Dependencia</label>
-      <select class="form-control" name="dependencias_id">
+      <select class="form-control" name="dep_id">
         <?php $i=1; foreach ($dependencias as $dependencia): ?>
-        <option value="<?php echo $dependencia['id']; ?>" ><?php echo $dependencia['nombre']; ?></option>
+        <option value="<?php echo $dependencia['dep_id']; ?>" ><?php echo $dependencia['dep_nombre']; ?></option>
         <?php $i++; endforeach ?>                                  
       </select>
     </div>
 <div class="form-group " >
       <label>Responsable</label>
-      <select class="form-control" name="responsables_id">
+      <select class="form-control" name="res_id">
         <?php $i=1; foreach ($responsables as $responsable): ?>
-        <option value="<?php echo $responsable['id']; ?>" ><?php echo $responsable['apellido']." ".$responsable['nombre']; ?></option>
+        <option value="<?php echo $responsable['res_id']; ?>" ><?php echo $responsable['res_apellido']." ".$responsable['res_nombre']; ?></option>
         <?php $i++; endforeach ?>                                  
       </select>
     </div>
 
     <div class="form-group " >
         <label>Obseraciones</label>
-       <textarea name="observacion" class="form-control" rows="3"></textarea>
-         <span class="text-danger"><?php echo form_error('observacion'); ?></span>
+       <textarea name="his_observacion" class="form-control" rows="3"></textarea>
+         <span class="text-danger"><?php echo form_error('his_observacion'); ?></span>
       </div>
 </div>
   <!-- /. col-md-3  -->  

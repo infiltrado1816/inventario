@@ -6,7 +6,7 @@
   </ul>
   <!-- /. breadcrumb  -->
   <hr />  
-  <?php echo form_open(base_url().'responsables/editar/'.$responsables['id']) ?>
+  <?php echo form_open(base_url().'responsables/editar/'.$responsables['res_id']) ?>
   <div id="signupbox" style=" margin-top:5px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -18,13 +18,13 @@
           <form  class="form-horizontal" method="post" >
           <div class="form-group " >
             <label>Nombre</label>
-            <input class="form-control" name="nombre" value="<?php echo $responsables['nombre']; ?>" />
-            <span class="text-danger"><?php echo form_error('nombre'); ?></span>
+            <input class="form-control" name="res_nombre" value="<?php echo $responsables['res_nombre']; ?>" />
+            <span class="text-danger"><?php echo form_error('res_nombre'); ?></span>
           </div>
           <div class="form-group " >
             <label>Apellido</label>
-            <input class="form-control" name="apellido" value="<?php echo $responsables['apellido']; ?>" />
-            <span class="text-danger"><?php echo form_error('apellido'); ?></span>
+            <input class="form-control" name="res_apellido" value="<?php echo $responsables['res_apellido']; ?>" />
+            <span class="text-danger"><?php echo form_error('res_apellido'); ?></span>
           </div>
           <div class="form-group"> 
             <div class="aab controls col-md-4 "></div>

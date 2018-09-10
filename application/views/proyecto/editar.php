@@ -9,7 +9,7 @@
     
     
     <hr />  
-    <?php echo form_open(base_url().'proyecto/editar/'.$item['id']) ?>
+    <?php echo form_open(base_url().'proyecto/editar/'.$item['pro_id']) ?>
     <div class="panel panel-primary">
       <div class="panel-heading">
         Proyecto
@@ -21,8 +21,8 @@
 
           <div class="form-group">
             <label>Nombre</label>
-            <input class="form-control" name="nombre" value="<?php echo $item['nombre'];?>" />
-            <span class="text-danger"><?php echo form_error('nombre'); ?></span>
+            <input class="form-control" name="pro_nombre" value="<?php echo $item['pro_nombre'];?>" />
+            <span class="text-danger"><?php echo form_error('pro_nombre'); ?></span>
           </div>
           
 

@@ -8,66 +8,70 @@ class Articulo_model extends CI_Model {
 	{
 		if ($id === FALSE)
 		{
-			$this->db->select('articulos.*,articulos.id as id_articulo,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre,proyectos.nombre as proyecto_nombre, responsables.nombre as responsables_nombre, responsables.apellido as responsables_apellido');
+			$this->db->select('*');
 			$this->db->from('articulos');
-			$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
-			$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
-			$this->db->join('proyectos', 'proyectos.id = articulos.proyectos_id');
-			$this->db->join('responsables', 'responsables.id = articulos.responsables_id');
-			$this->db->order_by("descripcion", "asc"); 
+			$this->db->join('dependencias', 'dependencias.dep_id = articulos.dep_id');
+			$this->db->join('clasificaciones', 'clasificaciones.cla_id = articulos.cla_id');
+			$this->db->join('proyectos', 'proyectos.pro_id = articulos.pro_id');
+			$this->db->join('responsables', 'responsables.res_id = articulos.res_id');
+			$this->db->order_by("art_descripcion", "asc"); 
 			$query = $this->db->get();
+			 
+
 			return $query->result_array();
 		}
 
-			$this->db->select('articulos.*,articulos.id as id_articulo,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre,proyectos.nombre as proyecto_nombre, responsables.nombre as responsables_nombre, responsables.apellido as responsables_apellido');
+			$this->db->select('*');
 			$this->db->from('articulos');
-			$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
-			$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
-			$this->db->join('proyectos', 'proyectos.id = articulos.proyectos_id');
-			$this->db->join('responsables', 'responsables.id = articulos.responsables_id');
-			$this->db->where('articulos.id', $id);
+			$this->db->join('dependencias', 'dependencias.dep_id = articulos.dep_id');
+			$this->db->join('clasificaciones', 'clasificaciones.cla_id = articulos.cla_id');
+			$this->db->join('proyectos', 'proyectos.pro_id = articulos.pro_id');
+			$this->db->join('responsables', 'responsables.res_id = articulos.res_id');
+			$this->db->where('articulos.art_id', $id);
 			$query = $this->db->get();
 			return $query->row_array();
 	}
 	public function get_articulo_prestamo()
 	{
-		$this->db->select('articulos.*,articulos.id as id_articulo,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre');
+		$this->db->select('*');
 		$this->db->from('articulos');
-		$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
-		$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
-		$this->db->where('prestamo', TRUE);
-		$this->db->order_by("descripcion", "asc"); 
+		$this->db->join('dependencias', 'dependencias.dep_id = articulos.dep_id');
+		$this->db->join('clasificaciones', 'clasificaciones.cla_id = articulos.cla_id');
+		$this->db->where('art_prestamo', TRUE);
+		$this->db->order_by("art_descripcion", "asc"); 
 		$query = $this->db->get();
 		return $query->result_array();
 	}
 	public function set_articulo()
 	{
-		$data = array('descripcion' => $this->input->post('descripcion'),
-			'numeroemco' => $this->input->post('numeroemco'),
-			'serie' => $this->input->post('serie'),
-			'factura' => $this->input->post('factura'),
-			'prestamo' => FALSE,
-			'clasificaciones_id' => $this->input->post('clasificaciones_id'),
-			'proyectos_id' => $this->input->post('proyectos_id'),
-			'dependencias_id' => '0'
+		$data = array('art_descripcion' => $this->input->post('art_descripcion'),
+			'art_numeroemco' => $this->input->post('art_numeroemco'),
+			'art_serie' => $this->input->post('art_serie'),
+			'art_factura' => $this->input->post('art_factura'),
+			'art_prestamo' => FALSE,
+			'cla_id' => $this->input->post('cla_id'),
+			'pro_id' => $this->input->post('pro_id'),
+			'dep_id' => '0'
 			);
 
 		$this->db->insert('articulos', $data);
-		$data = array('dependencias_id' => '0',
-			'articulos_id' => $this->db->insert_id(),
-			'tipo' => 'Alta',
-			'usuarios_id' => $this->session->userdata('id')
+
+		$data = array('dep_id' => '0',
+			'art_id' => $this->db->insert_id(),
+			'his_tipo' => 'Alta',
+			'usu_id' => $this->session->userdata('id')
 			);
-		return $this->db->insert('historicos', $data);
+	return	 $this->db->insert('historicos', $data);
+	
 	}	
 	public function edit_articulo($id)
 	{
-		$data = array('descripcion' => $this->input->post('descripcion'),
-			'numeroemco' => $this->input->post('numeroemco'),
-			'serie' => $this->input->post('serie'),
-			'factura' => $this->input->post('factura'),
-			'clasificaciones_id' => $this->input->post('clasificaciones_id'),
-			'proyectos_id' => $this->input->post('proyectos_id')				
+		$data = array('art_descripcion' => $this->input->post('art_descripcion'),
+			'art_numeroemco' => $this->input->post('art_numeroemco'),
+			'art_serie' => $this->input->post('art_serie'),
+			'art_factura' => $this->input->post('art_factura'),
+			'clas_id' => $this->input->post('clas_id'),
+			'pro_id' => $this->input->post('pro_id')				
 			);
 		$this->db->where('id', $id);
 		return $this->db->update('articulos', $data);
@@ -75,79 +79,81 @@ class Articulo_model extends CI_Model {
 	public function pase()
 	{
 		$data = array(
-			'dependencias_id' => $this->input->post('dependencias_id'),
-			'responsables_id' => $this->input->post('responsables_id')
+			'dep_id' => $this->input->post('dep_id'),
+			'res_id' => $this->input->post('res_id')
 			);
-		$this->db->where('id',$this->input->post('id_articulo'));
+		$this->db->where('art_id',$this->input->post('art_id'));
 		$this->db->update('articulos', $data);
-		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
-			'articulos_id' => $this->input->post('id_articulo'),
-			'tipo' => 'Pase',
-			'observacion' => $this->input->post('observacion'),
-			'usuarios_id' => $this->session->userdata('id')
+
+		$data = array('dep_id' => $this->input->post('dep_id'),
+			'art_id' => $this->input->post('art_id'),
+			'his_tipo' => 'Pase',
+			'his_observacion' => $this->input->post('his_observacion'),
+			'usu_id' => $this->session->userdata('id')
 			);
 		return $this->db->insert('historicos', $data);
 	}
+	
 	public function prestamo()
 	{
 		$data = array(
-			'prestamo' => TRUE
+			'art_prestamo' => TRUE
 			);
-		$this->db->where('id',$this->input->post('id_articulo'));
+		$this->db->where('art_id',$this->input->post('art_id'));
 		$this->db->update('articulos', $data);
 
-		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
-			'articulos_id' => $this->input->post('id_articulo'),
-			'tipo' => 'Prestamo',
-			'observacion' => $this->input->post('observacion'),
-			'usuarios_id' => $this->session->userdata('id')
+		$data = array('dep_id' => $this->input->post('dep_id'),
+			'art_id' => $this->input->post('art_id'),
+			'his_tipo' => 'Prestamo',
+			'his_observacion' => $this->input->post('art_observacion'),
+			'usu_id' => $this->session->userdata('id')
 			);
 		return $this->db->insert('historicos', $data);
 	}
 	public function reparacion()
 	{
-		$data = array('observacion' => $this->input->post('observacion'),
-			'articulos_id' => $this->input->post('id_articulo'),
-			'dependencias_id' => $this->input->post('dependencias_id'),
-			'tipo' => 'Reparacion',
-			'usuarios_id' => $this->session->userdata('id')
+		$data = array('his_observacion' => $this->input->post('his_observacion'),
+			'art_id' => $this->input->post('art_id'),
+			'dep_id' => $this->input->post('dep_id'),
+			'his_tipo' => 'Reparacion',
+			'usu_id' => $this->session->userdata('id')
 			);
 		return $this->db->insert('historicos', $data);
 	}
 	public function retorno()
 	{
-		$data = array('prestamo' => FALSE);
-		$this->db->where('id',$this->input->post('id_articulo'));
+		$data = array('art_prestamo' => FALSE);
+		$this->db->where('art_id',$this->input->post('art_id'));
 		$this->db->update('articulos', $data);
-		$data = array('dependencias_id' => $this->input->post('dependencias_id'),
-			'articulos_id' => $this->input->post('id_articulo'),
-			'tipo' => 'Retorno',
-			'usuarios_id' => $this->session->userdata('id')
+		$data = array('dep_id' => $this->input->post('dep_id'),
+			'art_id' => $this->input->post('art_id'),
+			'hist_tipo' => 'Retorno',
+			'usu_id' => $this->session->userdata('id')
 			);
 		return $this->db->insert('historicos', $data);
 	}
 	public function del_articulo($id)
 	{
-		return $this->db->delete('articulos', array('id' => $id)); 
+		return $this->db->delete('articulos', array('art_id' => $id)); 
 	}
 	public function buscar()
 	{
-		$this->db->select('articulos.*,articulos.id as articulosid,dependencias.*,clasificaciones.id as clasificacionesid,clasificaciones.nombre as clasificacionesnombre');
+		$this->db->select('*');
 		$this->db->from('articulos');
-		$this->db->join('dependencias', 'dependencias.id = articulos.dependencias_id');
-		$this->db->join('clasificaciones', 'clasificaciones.id = articulos.clasificaciones_id');
-		$this->db->where('clasificaciones_id', $this->input->post('clasificaciones_id'));
+		$this->db->join('dependencias', 'dependencias.dep_id = articulos.dep_id');
+		$this->db->join('clasificaciones', 'clasificaciones.cla_id = articulos.cla_id');
+		$this->db->where('clasificaciones.cla_id', $this->input->post('cla_id'));
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function get_historial($id_articulo)
+	public function get_historial($art_id)
 	{
-		$this->db->select('historicos.*,dependencias.nombre,usuarios.login');
+		$this->db->select('*');
 		$this->db->from('historicos');
-		$this->db->join('dependencias', 'dependencias.id = historicos.dependencias_id');
-		$this->db->join('usuarios', 'usuarios.id = historicos.usuarios_id');
-		$this->db->where('historicos.articulos_id', $id_articulo);
-		$this->db->order_by("fecha", "desc"); 
+		$this->db->join('dependencias', 'dependencias.dep_id = historicos.dep_id');
+		$this->db->join('usuarios', 'usuarios.usu_id = historicos.usu_id');
+		$this->db->where('historicos.art_id', $art_id);
+		$this->db->order_by("his_fecha", "desc"); 
 		$query = $this->db->get();
 		return $query->result_array();
 	}

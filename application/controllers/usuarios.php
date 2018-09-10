@@ -39,10 +39,10 @@ class Usuarios extends CI_Controller {
 		public function nuevo()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('login', 'login', 'required|is_unique[usuarios.login]');
-		$this->form_validation->set_rules('nombre', 'nombre', 'required|max_length[45]');
-		$this->form_validation->set_rules('apellido', 'apellido', 'required|max_length[45]');
-		$this->form_validation->set_rules('password', 'password', 'required|max_length[10]');
+		$this->form_validation->set_rules('login', 'usu_login', 'required|is_unique[usuarios.usu_login]');
+		$this->form_validation->set_rules('nombre', 'usu_nombre', 'required|max_length[45]');
+		$this->form_validation->set_rules('apellido', 'usu_apellido', 'required|max_length[45]');
+		$this->form_validation->set_rules('password', 'usu_password', 'required|max_length[10]');
 
 
 
@@ -64,7 +64,7 @@ class Usuarios extends CI_Controller {
 	public function editar($id)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('password', 'pasword', 'required|max_length[45]');
+		$this->form_validation->set_rules('password', 'usu_pasword', 'required|max_length[45]');
 
 		if ($this->form_validation->run() == FALSE)
 			{
@@ -81,14 +81,7 @@ class Usuarios extends CI_Controller {
 				redirect(base_url()."usuarios", 'refresh');
 
 			}
-
 	}
-
-
-	
-
-
-
 }
 
 /* End of file welcome.php */

@@ -21,29 +21,29 @@
                     <form  class="form-horizontal" method="post" >
                            <div class="form-group " >
         <label>Perfil</label>
-        <select class="form-control" name="perfil">
-          <option value="Usuario" <?php if("Usuario"===$usuario['perfil']){ echo 'selected';} ?>>Usuario</option>
-          <option value="Administrador" <?php if("Administrador"===$usuario['perfil']){ echo 'selected';} ?>>Administrador</option>
+        <select class="form-control" name="usu_perfil">
+          <option value="Usuario" <?php if("Usuario"===$usuario['usu_perfil']){ echo 'selected';} ?>>Usuario</option>
+          <option value="Administrador" <?php if("Administrador"===$usuario['usu_perfil']){ echo 'selected';} ?>>Administrador</option>
         </select>
        
       </div>
     <div class="form-group " >
         <label>Login</label>
-        <input class="form-control" name="login" value="<?php echo $usuario['login']; ?>" />
-         <span class="text-danger"><?php echo form_error('login'); ?></span>
+        <input class="form-control" name="usu_login" value="<?php echo $usuario['usu_login']; ?>" />
+         <span class="text-danger"><?php echo form_error('usu_login'); ?></span>
       </div>
 
       <div class="form-group " >
         <label>Nombre</label>
-        <input class="form-control" name="nombre" value="<?php echo $usuario['nombre']; ?>" />
-         <span class="text-danger"><?php echo form_error('nombre'); ?></span>
+        <input class="form-control" name="usu_nombre" value="<?php echo $usuario['usu_nombre']; ?>" />
+         <span class="text-danger"><?php echo form_error('usu_nombre'); ?></span>
       </div>
 
 
       <div class="form-group " >
         <label>Apellido</label>
-        <input class="form-control" name="apellido" value="<?php echo $usuario['apellido']; ?>" />
-         <span class="text-danger"><?php echo form_error('apellido'); ?></span>
+        <input class="form-control" name="usu_apellido" value="<?php echo $usuario['usu_apellido']; ?>" />
+         <span class="text-danger"><?php echo form_error('usu_apellido'); ?></span>
       </div>
 
        <div class="form-group"> 

@@ -34,9 +34,9 @@
             <?php $i=1; foreach ($item as $clasificacion): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $clasificacion['nombre']; ?></td>
-              <td><a href="<?php echo base_url()."clasificacion/editar/".$clasificacion['id']?>">Editar</a></td>
-              <td><a href="<?php echo base_url()."clasificacion/eliminar/".$clasificacion['id']?>">Eliminar</a></td>
+              <td><?php echo $clasificacion['cla_nombre']; ?></td>
+              <td><a href="<?php echo base_url()."clasificacion/editar/".$clasificacion['cla_id']?>">Editar</a></td>
+              <td><a href="<?php echo base_url()."clasificacion/eliminar/".$clasificacion['cla_id']?>">Eliminar</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>

@@ -34,9 +34,9 @@
             <?php $i=1; foreach ($item as $dependencia): ?>
             <tr>
               <td><?php echo $i; ?></td>
-              <td><?php echo $dependencia['nombre']; ?></td>
-              <td><a href="<?php echo base_url()."dependencia/editar/".$dependencia['id']?>">Editar</a></td>
-              <td><a href="<?php echo base_url()."dependencia/eliminar/".$dependencia['id']?>">Eliminar</a></td>
+              <td><?php echo $dependencia['dep_nombre']; ?></td>
+              <td><a href="<?php echo base_url()."dependencia/editar/".$dependencia['dep_id']?>">Editar</a></td>
+              <td><a href="<?php echo base_url()."dependencia/eliminar/".$dependencia['dep_id']?>">Eliminar</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>

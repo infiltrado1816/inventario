@@ -10,52 +10,43 @@ class usuario_model extends CI_Model {
 		{
 			$this->db->select('*');
 			$this->db->from('usuarios');
-			$this->db->order_by("login", "asc"); 
+			$this->db->order_by("usu_login", "asc"); 
 			$query = $this->db->get();
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('usuarios', array('id' => $id));
+		$query = $this->db->get_where('usuarios', array('usu_id' => $id));
 		return $query->row_array();
 	}
-
-	public function get_usuario_access($login)
+	public function get_usuario_access($usu_login)
 	{
-		$query = $this->db->get_where('usuarios', array('login' => $login));
+		$query = $this->db->get_where('usuarios', array('usu_login' => $usu_login));
 		return $query->row_array();
 	}
-
 	public function set_usuario()
 	{
-		$data = array('login' => $this->input->post('login'),
-				'nombre' => $this->input->post('nombre'),
-				'apellido' => $this->input->post('apellido'),
-				'password' => $this->input->post('password'),
-				'perfil' => $this->input->post('perfil')		
+		$data = array('usu_login' => $this->input->post('usu_login'),
+				'usu_nombre' => $this->input->post('usu_nombre'),
+				'usu_apellido' => $this->input->post('usu_apellido'),
+				'usu_password' => $this->input->post('usu_password'),
+				'usu_perfil' => $this->input->post('usu_perfil')		
 			);
-
-
-
 		return $this->db->insert('usuarios', $data);
 	}	
-
-	public function edit_usuario($id)
+	public function edit_usuario($usu_id)
 	{
-		$data = array('descripcion' => $this->input->post('descripcion'),
-				'numeroemco' => $this->input->post('numeroemco'),
-				'serie' => $this->input->post('serie'),
-				'factura' => $this->input->post('factura'),
-				'clasificaciones_id' => $this->input->post('clasificaciones_id')		
+		$data = array('usu_descripcion' => $this->input->post('usu_descripcion'),
+				'usu_numeroemco' => $this->input->post('usu_numeroemco'),
+				'usu_serie' => $this->input->post('usu_serie'),
+				'usu_factura' => $this->input->post('usu_factura'),
+				'cla_id' => $this->input->post('cla_id')		
 			);
 			$this->db->where('id', $id);
 		return $this->db->update('usuarios', $data);;
 	}
-
-	public function edit_password($id)
+	public function edit_password($usu_id)
 	{
-		$data = array('password' =>  md5($this->input->post('password')));
-		$this->db->where('id', $id);
+		$data = array('usu_password' =>  md5($this->input->post('usu_password')));
+		$this->db->where('usu_id', $usu_id);
 		return $this->db->update('usuarios', $data);;
 	}
-
 }
-

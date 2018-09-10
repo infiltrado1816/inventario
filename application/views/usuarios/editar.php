@@ -9,7 +9,7 @@
   
         
         <hr />  
-                    <?php echo form_open(base_url().'usuarios/editar/'.$id_usuario) ?>
+                    <?php echo form_open(base_url().'usuarios/editar/'.$usu_id) ?>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Cambiar Contraseña de Usuario
@@ -21,8 +21,8 @@
 
                           <div class="form-group">
                             <label>Nueva Clave</label>
-                            <input autocomplete="off" class="form-control" name="password" />
-                            <span class="text-danger"><?php echo form_error('razon'); ?></span>
+                            <input autocomplete="off" class="form-control" name="usu_password" />
+                            <span class="text-danger"><?php echo form_error('usu_password'); ?></span>
                           </div>
                        
 
