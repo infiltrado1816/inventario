@@ -37,7 +37,7 @@ class Login extends CI_Controller {
 				$user_data=$this->usuario_model->get_usuario_access($this->input->post('usu_login'));
 				if($user_data == TRUE)
 				{
-					if($user_data['usu_password']== ($this->input->post('usu_password')))
+					if($user_data['usu_password']== md5($this->input->post('usu_password')))
 					{
 						$data = array(
 	                'is_logued_in' 	=> 		TRUE,
