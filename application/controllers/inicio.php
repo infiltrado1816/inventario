@@ -35,5 +35,5 @@ class Inicio extends CI_Controller {
 	}
 }
 
-/* End of file welcome.php */
+/* End of file welcome.php test test */
 /* Location: ./application/controllers/welcome.php */
